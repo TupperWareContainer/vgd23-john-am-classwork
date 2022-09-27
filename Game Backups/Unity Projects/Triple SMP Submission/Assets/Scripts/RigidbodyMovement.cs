@@ -9,14 +9,18 @@ public class RigidbodyMovement : MonoBehaviour
     public float moveIncrement = 15f;
     public float jumpMult = 2f;
     public float desiredHeight = 10f;
+    public float desiredAngle; 
     [SerializeField] bool isLeft = false;
     [SerializeField] bool isRight = false;
     [SerializeField] bool isUp = false;
-    [SerializeField] bool isGrounded;
-    private Vector2 offset = new Vector2(0f, -1);
-    private float timer;
-    public LayerMask layermask;
-
+    [SerializeField] bool isDown = false;
+    //[SerializeField] bool isGrounded;
+    [SerializeField] bool fire = false; 
+   // private Vector2 offset = new Vector2(0f, -1);
+    //private float timer;
+    //public LayerMask layermask;
+    public Transform inst_point;
+    public GameObject proj; 
     float vX;
     float vY;
    
@@ -46,23 +50,45 @@ public class RigidbodyMovement : MonoBehaviour
             isLeft = false;
             isRight = false;
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.W))
         {
             isUp = true;
+            isDown = false; 
             Debug.Log("jump"); 
+        }
+         if (Input.GetKey(KeyCode.S))
+        {
+            isUp = false;
+            isDown = true; 
+            
+        }
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        {
+            isUp = false;
+            isDown = false; 
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            rb.position = new Vector2(0f, 0f);
+            rb.velocity = new Vector2(0f, 0f); 
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            fire = true; 
         }
         else
         {
-            isUp = false;
+            fire = false; 
         }
-
+        Punt(fire, proj, desiredAngle, inst_point);
     }
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.BoxCast(rb.transform.position, transform.lossyScale, 0f,Vector2.down,0.2f,layermask );
+       // isGrounded = Physics2D.BoxCast(rb.transform.position, transform.lossyScale, 0f,Vector2.down,0.2f,layermask );
         Debug.DrawLine(rb.transform.position, rb.transform.position + new Vector3(0f,-1f,0f),Color.green); 
-        Move(isLeft, isRight, isUp);
-        if (!isGrounded)
+        Move(isLeft, isRight, isUp,isDown);
+        
+       /* if (!isGrounded)
         {
             //timer += Time.fixedDeltaTime;
             vY  -= 3f * Time.fixedDeltaTime; 
@@ -70,21 +96,33 @@ public class RigidbodyMovement : MonoBehaviour
         else 
         {
             vY = 0; 
-        }
+        }*/ 
         
     }
-    private void Move(bool left, bool right, bool up)
+    private void Move(bool left, bool right, bool up,bool down)
     {
         Vector2 output = new Vector2();
-        
-        if (up && isGrounded)
+
+        /* if (up && isGrounded)
+         {
+             //rb.AddForce(Vector2.up * jumpMult * Time.fixedDeltaTime ,ForceMode2D.Impulse);
+            // Debug.Log($"added {Vector2.up * jumpMult * Time.fixedDeltaTime} units of force"); 
+             vY = moveIncrement * jumpMult;
+            // isGrounded = false; 
+         }
+         */
+        if (up)
         {
-            //rb.AddForce(Vector2.up * jumpMult * Time.fixedDeltaTime ,ForceMode2D.Impulse);
-           // Debug.Log($"added {Vector2.up * jumpMult * Time.fixedDeltaTime} units of force"); 
-            vY = moveIncrement * jumpMult;
-           // isGrounded = false; 
+            vY = moveIncrement * Time.fixedDeltaTime; 
         }
-        
+        else if (down)
+        {
+            vY = -moveIncrement * Time.fixedDeltaTime; 
+        }
+        else
+        {
+            vY = 0f; 
+        }
         if (right)
         {
             vX= moveIncrement * Time.fixedDeltaTime;
@@ -96,10 +134,21 @@ public class RigidbodyMovement : MonoBehaviour
         }
         else
         {
-            vX = 0f; 
+            vX = 0f;
         }
+
         output = new Vector2(vX, vY); 
         rb.velocity = output; 
         
+    }
+    private void Punt(bool isFire,GameObject inst, float angle,Transform p)
+    {
+       
+        if (isFire)
+        {
+          
+           
+            GameObject.Instantiate(inst, position: p.position, rotation: transform.rotation);
+        }
     }
 }
