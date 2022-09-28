@@ -15,7 +15,9 @@ public class RigidbodyMovement : MonoBehaviour
     [SerializeField] bool isUp = false;
     [SerializeField] bool isDown = false;
     //[SerializeField] bool isGrounded;
-    [SerializeField] bool fire = false; 
+    [SerializeField] bool fire = false;
+    private Aim aimS;
+    private Vector2 mousePos; 
    // private Vector2 offset = new Vector2(0f, -1);
     //private float timer;
     //public LayerMask layermask;
@@ -23,17 +25,16 @@ public class RigidbodyMovement : MonoBehaviour
     public GameObject proj; 
     float vX;
     float vY;
-   
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
+        aimS = GetComponent<Aim>();
         
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+        mousePos = aimS.mousePos;
         if (Input.GetKey(KeyCode.A))
         {
             isRight = false; 
@@ -72,7 +73,7 @@ public class RigidbodyMovement : MonoBehaviour
             rb.position = new Vector2(0f, 0f);
             rb.velocity = new Vector2(0f, 0f); 
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Vector2.Distance(transform.position,mousePos) >= 2)
         {
             fire = true; 
         }
@@ -81,6 +82,7 @@ public class RigidbodyMovement : MonoBehaviour
             fire = false; 
         }
         Punt(fire, proj, desiredAngle, inst_point);
+        Debug.Log(Vector2.Distance(transform.position, mousePos)); 
     }
     private void FixedUpdate()
     {
