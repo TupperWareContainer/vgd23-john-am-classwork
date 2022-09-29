@@ -138,6 +138,10 @@ public class RigidbodyMovement : MonoBehaviour
         {
             vX = 0f;
         }
+        if (Input.GetKey(KeyCode.P))
+        {
+            
+        }
 
         output = new Vector2(vX, vY); 
         rb.velocity = output; 
@@ -153,4 +157,5 @@ public class RigidbodyMovement : MonoBehaviour
             GameObject.Instantiate(inst, position: p.position, rotation: transform.rotation);
         }
     }
+    
 }

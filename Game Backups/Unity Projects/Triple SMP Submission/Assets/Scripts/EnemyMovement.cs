@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     private Rigidbody2D rb;
-    public float moveMult; 
+    public float moveMult;
+    public ScoreKeeper sk;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        int num = 0;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+       //ameObject[] scorekeepers;
+        num = enemies.Length;
+        name = $"Enemy {num}"; 
+        
+
+    }
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform; 
     }
    
     // Update is called once per frame
@@ -33,7 +45,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+
             Debug.Log("DEAD");
+            //sk.ogScore = sk.score;
+            sk.score += 1;
+            sk.QueueStyleText("+ENEMY DOWN"); 
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
