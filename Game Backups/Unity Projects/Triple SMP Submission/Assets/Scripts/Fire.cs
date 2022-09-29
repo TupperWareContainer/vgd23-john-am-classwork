@@ -21,11 +21,13 @@ public class Fire : MonoBehaviour
        // launchAngle = new Vector2(transform.position.x - aimpos.transform.position.x, transform.position.y - aimpos.transform.position.y);
         
         Debug.Log($"transform.forward for {name}: {transform.forward}");
-        rb.velocity = transform.forward * f_Mult;       
+        transform.LookAt(aimpos.transform.position);
+        rb.velocity = transform.forward * f_Mult;
+       
     }
     private void Update()
     {
-        transform.LookAt(aimpos.transform.position); 
+
         timer += Time.deltaTime;
         if(timer > 3)
         {
@@ -38,5 +40,5 @@ public class Fire : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }*/
+    }     */
 }
