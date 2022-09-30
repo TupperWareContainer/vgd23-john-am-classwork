@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ScoreKeeper : MonoBehaviour
 {
     public int score;
-    
+    private int x; 
     public Text uIScore;
     public Text[] styleText = new Text[6];
     public Slider styleSlider;
@@ -28,15 +28,24 @@ public class ScoreKeeper : MonoBehaviour
     public void QueueStyleText(string sT)
     {
         int b = 0;
+        
         bool textAdded = false;
         while (!textAdded)
         {
             if(styleText[b].text != "-")
             {
-                b++;
-                 
+                if (styleText[b].text.Contains(sT))
+                {
+                    x++;
+                    styleText[b].text = $"{sT} (x{x})";
+                    textAdded = true; 
+                }
+                else
+                {
+                    b++; 
+                }
             }
-            else
+            else if (styleText[b].text.Contains("-"))
             {
                 styleText[b].text = sT;
                 textAdded = true;
@@ -55,9 +64,9 @@ public class ScoreKeeper : MonoBehaviour
         for (int a = 0; a < styleText.Length; a++)
         {
 
-            switch (styleText[a].text)
+           /* switch (styleText[a].text)
             {
-                case "+ENEMY DOWN":
+                case styleText[a].text.Contains("+ENEMY DOWN"):
                     cScore +=1;
                     styleSlider.value = cScore;
                     break;
@@ -65,6 +74,11 @@ public class ScoreKeeper : MonoBehaviour
                     styleSlider.value = cScore; 
                     break; 
 
+            }    */
+           if(styleText[a].text.Contains("+ENEMY DOWN") || styleText[a].text.Contains($"+ENEMY DOWN {x}"))
+            {
+                cScore += 1;
+                styleSlider.value = cScore; 
             }
             if(cScore > styleSlider.maxValue)
             {
