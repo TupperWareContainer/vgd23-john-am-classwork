@@ -2384,6 +2384,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &594837475 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7007367012374245877, guid: 133af8b06f9d96d448b9843c51a7a51e, type: 3}
+  m_PrefabInstance: {fileID: 1851822375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &611049021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4440,6 +4445,10 @@ PrefabInstance:
       propertyPath: grade
       value: 
       objectReference: {fileID: 84067730}
+    - target: {fileID: 1165822804219693899, guid: 60fdc6d4e4ae79f43978e9a0dfc02c0d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 594837475}
     - target: {fileID: 1165822804219693899, guid: 60fdc6d4e4ae79f43978e9a0dfc02c0d, type: 3}
       propertyPath: uIScore
       value: 

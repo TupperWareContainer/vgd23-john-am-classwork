@@ -12,20 +12,25 @@ public class ScoreKeeper : MonoBehaviour
     public Text[] styleText = new Text[6];
     public Slider styleSlider;
     public Text grade; 
-    private int cScore = 0;
+    private float cScore = 0;
     private float timer; 
-    public int finalscore = 0; 
+    public int finalscore = 0;
+    public Rigidbody2D player;
+    public float speedMultiplier; 
     // Start is called before the first frame update
     // Update is called once per frame
     private void Start()
     {
-        ResetStyleText();  
+        ResetStyleText();
+       
     }
     void Update()
     {
-    
+        speedMultiplier = player.velocity.sqrMagnitude / 100;
+        styleSlider.value = cScore;
         uIScore.text = $"Score: {score}";
         Debug.Log($"Styleslider value {styleSlider.value}");
+        Debug.Log($"speedMultiplier: {speedMultiplier}");
         //StyleMeterScore(); 
        
     }
@@ -85,9 +90,9 @@ public class ScoreKeeper : MonoBehaviour
                 
                 if (styleText[a].text.Contains("+ENEMY DOWN") || styleText[a].text.Contains($"+ENEMY DOWN {x}"))
                 {
-                    cScore++;
-                    styleSlider.value = cScore;
-                    Debug.Log($"cScore: {cScore}");
+                    cScore+= 1 + speedMultiplier;
+
+                Debug.Log($"cScore: {cScore}");
                     Debug.Log("if you see this message multiple times, something has gone wrong");
                     //hasAppliedScore = true;
 
