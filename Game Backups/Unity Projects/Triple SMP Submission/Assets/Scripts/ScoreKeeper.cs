@@ -12,7 +12,9 @@ public class ScoreKeeper : MonoBehaviour
     public Text[] styleText = new Text[6];
     public Slider styleSlider;
     public Text grade; 
-  
+    private int cScore = 0;
+    private float timer; 
+    public int finalscore = 0; 
     // Start is called before the first frame update
     // Update is called once per frame
     private void Start()
@@ -23,7 +25,9 @@ public class ScoreKeeper : MonoBehaviour
     {
     
         uIScore.text = $"Score: {score}";
-        StyleMeterScore(); 
+        Debug.Log($"Styleslider value {styleSlider.value}");
+        //StyleMeterScore(); 
+       
     }
     public void QueueStyleText(string sT)
     {
@@ -38,7 +42,8 @@ public class ScoreKeeper : MonoBehaviour
                 {
                     x++;
                     styleText[b].text = $"{sT} (x{x})";
-                    textAdded = true; 
+                    textAdded = true;
+                   
                 }
                 else
                 {
@@ -54,41 +59,47 @@ public class ScoreKeeper : MonoBehaviour
     }
     public void StyleMeterScore()
     {
-        int finalscore = 0;
-        int cScore = 0;
-        float timer = 0; 
+        //bool hasAppliedScore = false;
+       
         if(finalscore < 1)
         {
             styleSlider.maxValue = 3; 
         }
-        for (int a = 0; a < styleText.Length; a++)
+
+        styleSlider.value = cScore;
+        // if (!hasAppliedScore)
+        //{ 
+        if (cScore >= styleSlider.maxValue && finalscore <= 5)
         {
+            cScore = 0;
+            finalscore++;
+            Debug.Log($"Finalscore {finalscore}");
 
-           /* switch (styleText[a].text)
-            {
-                case styleText[a].text.Contains("+ENEMY DOWN"):
-                    cScore +=1;
-                    styleSlider.value = cScore;
-                    break;
-                default:
-                    styleSlider.value = cScore; 
-                    break; 
-
-            }    */
-           if(styleText[a].text.Contains("+ENEMY DOWN") || styleText[a].text.Contains($"+ENEMY DOWN {x}"))
-            {
-                cScore += 1;
-                styleSlider.value = cScore; 
-            }
-            if(cScore > styleSlider.maxValue)
-            {
-               
-                finalscore++;
-                
-                cScore = 0;
-            }
-           
         }
+        else if (finalscore > 5)
+        {
+            finalscore = 5;
+        }
+        for (int a = 0; a < styleText.Length; a++){
+
+                
+                if (styleText[a].text.Contains("+ENEMY DOWN") || styleText[a].text.Contains($"+ENEMY DOWN {x}"))
+                {
+                    cScore++;
+                    styleSlider.value = cScore;
+                    Debug.Log($"cScore: {cScore}");
+                    Debug.Log("if you see this message multiple times, something has gone wrong");
+                    //hasAppliedScore = true;
+
+                }
+                else
+                {
+                    a++;
+                }
+        }
+            
+        //} 
+
         switch (finalscore)
         {
             case 1: 
@@ -128,10 +139,11 @@ public class ScoreKeeper : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-        if(timer  > 3)
+        if(timer  >= 15)
         {
             timer = 0f;
-            finalscore--;
+            finalscore = 0; 
+            ResetStyleText(); 
           
         }
 

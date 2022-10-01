@@ -49,9 +49,11 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("DEAD");
             //sk.ogScore = sk.score;
             sk.score += 1;
+           // sk.finalscore += 3; 
             sk.QueueStyleText("+ENEMY DOWN"); 
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            sk.StyleMeterScore(); 
         }
     }
 
