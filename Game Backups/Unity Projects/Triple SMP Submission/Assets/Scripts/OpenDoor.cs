@@ -12,8 +12,8 @@ public class OpenDoor : MonoBehaviour
     {
         if (enemies <= 0)
         {
-            leftDoor.Translate(new Vector3(leftDoor.position.x - 1f, leftDoor.position.y, leftDoor.position.z));
-            rightDoor.Translate(new Vector3(leftDoor.position.x + 1f, leftDoor.position.y, leftDoor.position.z)); 
+            leftDoor.Translate(new Vector2(leftDoor.position.x - 1f, leftDoor.position.y));
+            rightDoor.Translate(new Vector2(leftDoor.position.x + 1f, leftDoor.position.y)); 
         }  
     }
     

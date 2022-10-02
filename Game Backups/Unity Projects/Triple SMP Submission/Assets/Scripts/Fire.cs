@@ -29,16 +29,13 @@ public class Fire : MonoBehaviour
     {
 
         timer += Time.deltaTime;
-        if(timer > 3)
+        if(timer > 2)
         {
             Destroy(gameObject); 
         }
     }
-   /* private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.collider.CompareTag("Player") || collision.collider.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-    }     */
+        Destroy(gameObject);
+    }      */ 
 }

@@ -28,7 +28,7 @@ public class ScoreKeeper : MonoBehaviour
     {
         speedMultiplier = player.velocity.sqrMagnitude / 100;
         styleSlider.value = cScore;
-        uIScore.text = $"Score: {score}";
+        uIScore.text = $"Enemies Left: {score}";
         Debug.Log($"Styleslider value {styleSlider.value}");
         Debug.Log($"speedMultiplier: {speedMultiplier}");
         //StyleMeterScore(); 

@@ -13,7 +13,7 @@ public class PlatformerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1; /// the timescale is set to 1 whenever the level is loaded as a consequence of the player possibly reloading the level from another where the timescale is set to zero
     }
 
     // Update is called once per frame

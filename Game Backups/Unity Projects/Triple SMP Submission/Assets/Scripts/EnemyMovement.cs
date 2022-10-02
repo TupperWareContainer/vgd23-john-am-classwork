@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform target;
+    private HealthbarController playerhealth; 
     private Rigidbody2D rb;
     public float moveMult;
     public ScoreKeeper sk;
+    public OpenDoor s_Door; 
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,7 +24,8 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player").transform; 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        playerhealth = target.gameObject.GetComponent<HealthbarController>();
     }
    
     // Update is called once per frame
@@ -48,12 +51,20 @@ public class EnemyMovement : MonoBehaviour
 
             Debug.Log("DEAD");
             //sk.ogScore = sk.score;
-            sk.score += 1;
-           // sk.finalscore += 3; 
+            sk.score--;
+            // sk.finalscore += 3; 
+            s_Door.enemies--; 
             sk.QueueStyleText("+ENEMY DOWN"); 
             Destroy(collision.gameObject);
             Destroy(gameObject);
             sk.StyleMeterScore(); 
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            playerhealth.DamagePlayer(1); 
         }
     }
 

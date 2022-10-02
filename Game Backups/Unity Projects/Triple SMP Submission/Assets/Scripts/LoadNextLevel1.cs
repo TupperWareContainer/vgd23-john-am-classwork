@@ -11,8 +11,8 @@ public class LoadNextLevel1 : MonoBehaviour
      
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log($"loading scene {SceneManager.GetSceneByBuildIndex(1)}"); 
-            SceneManager.LoadScene(1); 
+            Debug.Log($"loading scene {SceneManager.GetActiveScene().buildIndex + 1}"); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
             
         }
     }
