@@ -4728,6 +4728,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 996141501}
     - target: {fileID: 1165822804219693899, guid: 60fdc6d4e4ae79f43978e9a0dfc02c0d, type: 3}
+      propertyPath: maxStyleScore
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165822804219693899, guid: 60fdc6d4e4ae79f43978e9a0dfc02c0d, type: 3}
       propertyPath: styleText.Array.data[0]
       value: 
       objectReference: {fileID: 1501847244}
@@ -32651,6 +32655,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1031792615}
+    - target: {fileID: 1319021447810151622, guid: cb2d154fd9abe7b4a936be6e24333ee3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 1319021448350090999, guid: cb2d154fd9abe7b4a936be6e24333ee3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

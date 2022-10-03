@@ -9,7 +9,8 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float moveMult;
     public ScoreKeeper sk;
-    public OpenDoor s_Door; 
+    public OpenDoor s_Door;
+    public int stylePts; 
     // Start is called before the first frame update
     private void Awake()
     {
@@ -54,10 +55,10 @@ public class EnemyMovement : MonoBehaviour
             sk.score--;
             // sk.finalscore += 3; 
             s_Door.enemies--; 
-            sk.QueueStyleText("+ENEMY DOWN"); 
+            sk.QueueStyleText("+ENEMY DOWN");
+            sk.StyleMeterScore(3); 
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            sk.StyleMeterScore(); 
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
