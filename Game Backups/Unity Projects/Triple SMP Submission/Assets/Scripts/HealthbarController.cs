@@ -47,6 +47,7 @@ public class HealthbarController : MonoBehaviour
     {
         DeathScreen.SetActive(true);
         Time.timeScale = 0f;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition; 
         return; 
     }
     private void UpdateHealth()

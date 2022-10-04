@@ -17,7 +17,7 @@ public class Aim : MonoBehaviour
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0f));
-        debugObj.position = mousePos; 
+        transform.position = mousePos; 
     }
     
 }
