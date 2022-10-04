@@ -1,0 +1,1 @@
+Find a way to impliment style meter into space shooter, enemies should attack player and explode when killed, the explosion can harm other enemies 
