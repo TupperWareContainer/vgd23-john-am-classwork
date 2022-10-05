@@ -5,10 +5,12 @@ using UnityEngine;
 public class SpaceshipMovement : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    private bool isUp, isDown, isLeft, isRight = false;
+    private bool isUp, isDown, isLeft, isRight,fire = false;
     public float shipForce = 3f;
     public GameObject pointer;
-     
+    public float laserRange = 10f;
+    public GameObject lasorigin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,35 +51,47 @@ public class SpaceshipMovement : MonoBehaviour
             isLeft = false;
             isRight = false; 
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            fire = true; 
+        }
+        else
+        {
+            fire = false; 
+        }
         RotateObj(); 
         
     }
     private void FixedUpdate()
     {
-        Move(isUp, isDown, isLeft, isRight); 
+        Move(isUp, isDown, isLeft, isRight);
+        FireLaser(fire);
+       
     }
     private void Move(bool up, bool down, bool left, bool right)
     {
         if (up)
         {
-            //rb2D.AddForce(new Vector2(0f, shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse); 
+            rb2D.AddForce(new Vector2(0f, shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse); 
            // rb2D.AddForce( transform.right * shipForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
             Debug.Log(transform.forward * shipForce *Time.fixedDeltaTime);
-            rb2D.AddRelativeForce(new Vector2(0f,shipForce* Time.deltaTime), ForceMode2D.Impulse);
+            //rb2D.AddRelativeForce(new Vector2(0f,shipForce* Time.deltaTime), ForceMode2D.Impulse);
         }
         else if (down)
         {
-            // rb2D.AddForce(new Vector2(0f, -shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
+             rb2D.AddForce(new Vector2(0f, -shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
             //rb2D.AddForce( transform.right * -shipForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
-            rb2D.AddRelativeForce(new Vector2(0f, -shipForce * 100 * Time.deltaTime),ForceMode2D.Impulse);
+            //rb2D.AddRelativeForce(new Vector2(0f, -shipForce * Time.deltaTime),ForceMode2D.Impulse);
         }
         if (right)
         {
-            rb2D.AddRelativeForce(new Vector2(shipForce * Time.deltaTime,0f),ForceMode2D.Impulse); 
+            rb2D.AddForce(new Vector2( shipForce * Time.fixedDeltaTime,0f), ForceMode2D.Impulse);
+            //rb2D.AddRelativeForce(new Vector2(shipForce * Time.deltaTime,0f),ForceMode2D.Impulse); 
         }
         else if (left)
         {
-            rb2D.AddRelativeForce(new Vector2(-shipForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
+            rb2D.AddForce(new Vector2(-shipForce * Time.fixedDeltaTime, 0f), ForceMode2D.Impulse);
+           // rb2D.AddRelativeForce(new Vector2(-shipForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
         }
     }
     private void RotateObj()
@@ -88,6 +102,30 @@ public class SpaceshipMovement : MonoBehaviour
         float dY = distance.y;
         angle = Mathf.Rad2Deg * Mathf.Atan2(dY,dX) + 270;
         transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+    }
+    private void FireLaser(bool isFire)
+    {
+        if (isFire)
+        {
+            /* Debug.Log("Pew");
+             Ray2D ray = new Ray2D(lasorigin.position, pointer.transform.position);
+             Debug.DrawRay(ray.origin, ray.direction ,Color.red);
+             RaycastHit2D hit = Physics2D.Raycast(origin: ray.origin, direction: ray.direction, laserRange);
+             Debug.Log($"raycast hit: {hit.collider.name}"); 
+             if (hit.collider.CompareTag("Enemy"))
+             {
+                 hit.collider.gameObject.GetComponent<EnemyMovement>().Die(gameObject.GetComponent<Collider2D>(), 1);
+
+             }*/
+            lasorigin.SetActive(true);
+            lasorigin.GetComponent<LaserController>().isActive = true; 
+
+
+        }
+        else {
+            lasorigin.GetComponent<LaserController>().isActive = false; 
+            lasorigin.SetActive(false); 
+        }
     }
 }
 
