@@ -60,19 +60,24 @@ public class SpaceshipMovement : MonoBehaviour
     {
         if (up)
         {
-            rb2D.AddForce(new Vector2(0f, shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse); 
+            //rb2D.AddForce(new Vector2(0f, shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse); 
+           // rb2D.AddForce( transform.right * shipForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            Debug.Log(transform.forward * shipForce *Time.fixedDeltaTime);
+            rb2D.AddRelativeForce(new Vector2(0f,shipForce* Time.deltaTime), ForceMode2D.Impulse);
         }
         else if (down)
         {
-            rb2D.AddForce(new Vector2(0f, -shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
+            // rb2D.AddForce(new Vector2(0f, -shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
+            //rb2D.AddForce( transform.right * -shipForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            rb2D.AddRelativeForce(new Vector2(0f, -shipForce * 100 * Time.deltaTime),ForceMode2D.Impulse);
         }
         if (right)
         {
-            rb2D.AddForce(new Vector2(shipForce * Time.fixedDeltaTime, 0f), ForceMode2D.Impulse);
+            rb2D.AddRelativeForce(new Vector2(shipForce * Time.deltaTime,0f),ForceMode2D.Impulse); 
         }
         else if (left)
         {
-            rb2D.AddForce(new Vector2(-shipForce * Time.fixedDeltaTime, 0f), ForceMode2D.Impulse);
+            rb2D.AddRelativeForce(new Vector2(-shipForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
         }
     }
     private void RotateObj()
