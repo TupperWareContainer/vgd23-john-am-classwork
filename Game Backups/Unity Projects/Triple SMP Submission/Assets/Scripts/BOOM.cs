@@ -5,6 +5,7 @@ using UnityEngine;
 public class BOOM : MonoBehaviour
 {
     public float timer;
+    public float maxTime = 5f; 
     [SerializeField] Color explodyColor = new Color(255, 255, 0); 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class BOOM : MonoBehaviour
     {
         timer += Time.fixedDeltaTime;
         float tScale = 5 * timer;
-        if(timer > 5f)
+        if(timer >maxTime)
         {
             Destroy(gameObject); 
         }

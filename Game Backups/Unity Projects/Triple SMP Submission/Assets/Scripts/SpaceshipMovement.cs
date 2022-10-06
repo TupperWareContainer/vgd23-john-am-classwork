@@ -10,11 +10,13 @@ public class SpaceshipMovement : MonoBehaviour
     public GameObject pointer;
     public float laserRange = 10f;
     public GameObject lasorigin;
-
+    private AudioSource tSound;
+    private bool isPlayingAudio = false; 
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>(); 
+        rb2D = GetComponent<Rigidbody2D>();
+        tSound = GetComponent<AudioSource>(); 
        
     }
     
@@ -24,7 +26,8 @@ public class SpaceshipMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             isDown = false; 
-            isUp = true; 
+            isUp = true;
+           
         } 
         else if (Input.GetKey(KeyCode.S))
         {
@@ -60,6 +63,20 @@ public class SpaceshipMovement : MonoBehaviour
             fire = false; 
         }
         RotateObj(); 
+        if(rb2D.velocity != Vector2.zero && !isPlayingAudio && isLeft || isRight || isUp || isDown)
+        {
+            tSound.Play();
+            isPlayingAudio = true; 
+        }
+        else if (!tSound.isPlaying)
+        {
+            isPlayingAudio = false;
+            tSound.Stop(); 
+        }
+        else if(!isLeft && !isRight && !isUp && !isDown)
+        {
+            tSound.Stop(); 
+        }
         
     }
     private void FixedUpdate()

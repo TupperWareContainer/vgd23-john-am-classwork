@@ -123,7 +123,7 @@ public class EnemyMovement : MonoBehaviour
                     sk.StyleMeterScore(3);
                     Explode();
                     //Destroy(col.gameObject);
-                    Destroy(this.gameObject);
+                    Destroy(gameObject);
                     break;
                 default:
                     sk.QueueStyleText("+KILL");
