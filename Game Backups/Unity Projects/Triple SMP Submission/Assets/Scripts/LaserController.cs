@@ -8,10 +8,7 @@ public class LaserController : MonoBehaviour
     //public Transform p1;
    // public Transform p2;
    
-    private void Update()
-    {
-        
-    }
+  
     
     private void OnCollisionEnter2D(Collision2D collision)
     {

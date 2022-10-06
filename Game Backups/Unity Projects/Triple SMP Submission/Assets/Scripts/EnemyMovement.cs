@@ -65,7 +65,18 @@ public class EnemyMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Die(collision,deathType); 
+        if (collision.CompareTag("Bullet"))
+        {
+            deathType = 1; 
+            Die(collision, deathType);
+        }
+        else if (collision.CompareTag("Explosion"))
+        {
+            Debug.Log("Collider with exploder"); 
+            deathType = 2;
+            Die(collision, deathType);
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -80,8 +91,7 @@ public class EnemyMovement : MonoBehaviour
     }
     public void Die(Collider2D col,int dType)
     {
-        if (col.gameObject.CompareTag("Bullet"))
-        {
+       
 
             Debug.Log("DEAD");
             //sk.ogScore = sk.score;
@@ -103,16 +113,17 @@ public class EnemyMovement : MonoBehaviour
                     sk.QueueStyleText("+KILL");
                     sk.StyleMeterScore(4);
                     Explode();
-                    Destroy(col.gameObject);
+                    //Destroy(col.gameObject);
                     Destroy(gameObject);
+                    Debug.Log("Normal Death"); 
                     break;
 
                 case 2:
                     sk.QueueStyleText("+BOOM");
                     sk.StyleMeterScore(3);
                     Explode();
-                    Destroy(col.gameObject);
-                    Destroy(gameObject);
+                    //Destroy(col.gameObject);
+                    Destroy(this.gameObject);
                     break;
                 default:
                     sk.QueueStyleText("+KILL");
@@ -123,7 +134,7 @@ public class EnemyMovement : MonoBehaviour
                     break;
 
             }
-        }
+        
     }
     private void RotateObj()
     {

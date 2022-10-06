@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Jumppad
   - Ground
+  - Explosion
   layers:
   - Default
   - TransparentFX
