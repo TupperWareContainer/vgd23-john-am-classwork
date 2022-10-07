@@ -40,6 +40,7 @@ public class ScoreKeeper : MonoBehaviour
         g_C = maxStyleScore * .30f;
         g_D = maxStyleScore * .20f; 
         ResetStyleText();
+        score += 1; 
        
     }
     void Update()

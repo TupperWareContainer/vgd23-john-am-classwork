@@ -14,6 +14,7 @@ public class RigidbodyMovement : MonoBehaviour
     [SerializeField] bool isRight;
     [SerializeField] bool isUp;
     [SerializeField] bool isDown;
+    public bool canFire = true; 
     //[SerializeField] bool isGrounded;
     [SerializeField] bool fire ;
     public Aim aimS;
@@ -72,7 +73,7 @@ public class RigidbodyMovement : MonoBehaviour
             rb.position = new Vector2(0f, 0f);
             rb.velocity = new Vector2(0f, 0f); 
         }
-        if (Input.GetKeyDown(KeyCode.Space) && Vector2.Distance(transform.position,mousePos) >= 2)
+        if (Input.GetKeyDown(KeyCode.Space) && Vector2.Distance(transform.position,mousePos) >= 2 && canFire)
         {
             fire = true; 
         }
