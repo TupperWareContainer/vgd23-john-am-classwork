@@ -1,19 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class WinScript : MonoBehaviour
 {
     public GameObject winScreen;
-    private void OnCollisionEnter2D(Collision2D collision)
+    public Text score;
+    private void Update()
     {
-         
-        if (collision.collider.CompareTag("Player"))
+        if (score.text.Contains("Enemies Left: 0"))
         {
-            Time.timeScale = 0;
-            winScreen.SetActive(true); 
             
-
+            winScreen.SetActive(true);
         }
     }
 }

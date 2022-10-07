@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HangerScene.unity
     guid: f737db3b3ee87c445a25621226de84ad
+  - enabled: 1
+    path: Assets/Scenes/SpaceFarter.unity
+    guid: 8a3c918f77284f946ba7db8fd7dfd42b
   m_configObjects: {}

@@ -10,13 +10,13 @@ public class RigidbodyMovement : MonoBehaviour
     public float jumpMult = 2f;
     public float desiredHeight = 10f;
     public float desiredAngle; 
-    [SerializeField] bool isLeft = false;
-    [SerializeField] bool isRight = false;
-    [SerializeField] bool isUp = false;
-    [SerializeField] bool isDown = false;
+    [SerializeField] bool isLeft;
+    [SerializeField] bool isRight;
+    [SerializeField] bool isUp;
+    [SerializeField] bool isDown;
     //[SerializeField] bool isGrounded;
-    [SerializeField] bool fire = false;
-    private Aim aimS;
+    [SerializeField] bool fire ;
+    public Aim aimS;
     private Vector2 mousePos; 
    // private Vector2 offset = new Vector2(0f, -1);
     //private float timer;
@@ -26,11 +26,7 @@ public class RigidbodyMovement : MonoBehaviour
     float vX;
     float vY;
 
-    private void Start()
-    {
-        aimS = GetComponent<Aim>();
-        
-    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -38,12 +34,14 @@ public class RigidbodyMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             isRight = false; 
-            isLeft = true; 
+            isLeft = true;
+            Debug.Log("Left"); 
         }
         else if (Input.GetKey(KeyCode.D))
         {
             isLeft = false; 
-            isRight = true; 
+            isRight = true;
+            Debug.Log("right");
         }
 
         else
@@ -55,13 +53,14 @@ public class RigidbodyMovement : MonoBehaviour
         {
             isUp = true;
             isDown = false; 
-            Debug.Log("jump"); 
+            Debug.Log("forward"); 
         }
          if (Input.GetKey(KeyCode.S))
         {
             isUp = false;
-            isDown = true; 
-            
+            isDown = true;
+            Debug.Log("backwards");
+
         }
         if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
         {

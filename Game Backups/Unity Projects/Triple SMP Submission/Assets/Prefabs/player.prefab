@@ -284,7 +284,6 @@ GameObject:
   - component: {fileID: 7007367012374245878}
   - component: {fileID: 7007367012374245877}
   - component: {fileID: 7007367012374245879}
-  - component: {fileID: 855874776232552935}
   - component: {fileID: 3150171779878114013}
   - component: {fileID: 6395895026105555623}
   m_Layer: 0
@@ -434,20 +433,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &855874776232552935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7007367012374245874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b07689b1b2917418abca37c946dba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mousePos: {x: 0, y: 0}
-  debugObj: {fileID: 1614210097791830590}
 --- !u!114 &3150171779878114013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f94ca4ff1054945984dea1fb74ab91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimer: {fileID: 855874776232552935}
+  aimer: {fileID: 0}
   enemyPrefab: {fileID: 3123754605934893926, guid: 93cf602356a230245a5a08a0bb615eae, type: 3}
 --- !u!114 &6395895026105555623
 MonoBehaviour:
@@ -480,6 +465,7 @@ MonoBehaviour:
   - {fileID: 0}
   DeathScreen: {fileID: 0}
   playerHeath: 3
+  invTime: 3
 --- !u!1001 &875138424981899646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,8 +523,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 371e020fdf24a47408438e7c9f5f7f84, type: 3}
+--- !u!1 &3174236219449406599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2317166625312390649, guid: 371e020fdf24a47408438e7c9f5f7f84, type: 3}
+  m_PrefabInstance: {fileID: 875138424981899646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1614210097791830590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1892583089036346176, guid: 371e020fdf24a47408438e7c9f5f7f84, type: 3}
   m_PrefabInstance: {fileID: 875138424981899646}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6354420670906217333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174236219449406599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b07689b1b2917418abca37c946dba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousePos: {x: 0, y: 0, z: 0}
+  debugObj: {fileID: 1614210097791830590}

@@ -33,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         playerhealth = target.gameObject.GetComponent<HealthbarController>();
+        sk.score++; 
     }
    
     // Update is called once per frame
@@ -67,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            deathType = 1; 
+            deathType = 3; 
             Die(collision, deathType);
         }
         else if (collision.CompareTag("Explosion"))
@@ -75,6 +76,11 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Collider with exploder"); 
             deathType = 2;
             Die(collision, deathType);
+        }
+        else if (collision.CompareTag("Laser"))
+        {
+            deathType = 1;
+            Die(collision, deathType); 
         }
 
     }
@@ -125,7 +131,14 @@ public class EnemyMovement : MonoBehaviour
                     //Destroy(col.gameObject);
                     Destroy(gameObject);
                     break;
-                default:
+            case 3:
+                sk.QueueStyleText("+KILL");
+                sk.StyleMeterScore(4);
+                Destroy(gameObject);
+                Destroy(col.gameObject); 
+                Debug.Log("Normal Death w/o Explosion");
+                break; 
+            default:
                     sk.QueueStyleText("+KILL");
                     sk.StyleMeterScore(4);
                     Explode();

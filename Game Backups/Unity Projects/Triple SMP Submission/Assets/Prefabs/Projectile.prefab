@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbodyMovement: {fileID: 7007367012374245878, guid: 133af8b06f9d96d448b9843c51a7a51e, type: 3}
-  f_Mult: 40
+  f_Mult: 70
   timer: 0
 --- !u!50 &3638669135378457958
 Rigidbody2D:
