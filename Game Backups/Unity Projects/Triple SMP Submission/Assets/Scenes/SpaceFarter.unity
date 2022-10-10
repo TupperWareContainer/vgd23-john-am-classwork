@@ -3134,7 +3134,7 @@ PrefabInstance:
       objectReference: {fileID: 4512456401771058036, guid: 4a2ca40903b4eab49a49e6e4fa8472ca, type: 3}
     - target: {fileID: 6718426254370278307, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TryAgain
+      value: TryFromBeginning
       objectReference: {fileID: 0}
     - target: {fileID: 6718426254370278307, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

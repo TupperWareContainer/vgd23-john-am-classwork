@@ -43,5 +43,9 @@ public class PauseManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
+    public void TryFromBeginning()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }
