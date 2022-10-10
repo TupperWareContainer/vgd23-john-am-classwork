@@ -37,10 +37,16 @@ public class PointToEnemy : MonoBehaviour
     }
     private void Update()
     {
+        updateDistances();  
         arrow.transform.position = player.transform.position;
         StoreDistances(); 
         Point(); 
        
+    }
+    public void updateDistances()
+    {
+        enemyPositions = GameObject.FindGameObjectsWithTag("Enemy");
+        distances = new float[enemyPositions.Length];
     }
     private void StoreDistances()
     {
@@ -55,7 +61,9 @@ public class PointToEnemy : MonoBehaviour
     private void Point()
     {
         float nearestDist = Mathf.Min(distances);
-        Transform target = enemyPositions[Array.IndexOf(distances, nearestDist)].transform; 
+        
+        
+        Transform target = enemyPositions[Array.IndexOf(distances, nearestDist)].transform;
         Vector2 distance = new Vector2(player.transform.position.x - target.transform.position.x,player.transform.position.y- target.transform.position.y);
         //float dist = Mathf.Sqrt((distance.x * distance.x) + (distance.y * distance.y)); 
         angle = (Mathf.Rad2Deg * Mathf.Atan2(distance.y, distance.x) + 90);

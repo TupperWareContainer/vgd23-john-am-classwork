@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public float moveMult;
     public ScoreKeeper sk;
     public OpenDoor s_Door;
-   
+    public PointToEnemy ptEnemy; 
     public GameObject explosionPrefab;
     public int deathType; 
     /*
@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         playerhealth = target.gameObject.GetComponent<HealthbarController>();
-        sk.score++; 
+        //sk.score++; 
     }
    
     // Update is called once per frame
@@ -126,6 +126,7 @@ public class EnemyMovement : MonoBehaviour
 
                 case 2:
                     sk.QueueStyleText("+BOOM");
+                    ptEnemy.updateDistances();
                     sk.StyleMeterScore(3);
                     Explode();
                     //Destroy(col.gameObject);
@@ -134,6 +135,7 @@ public class EnemyMovement : MonoBehaviour
             case 3:
                 sk.QueueStyleText("+KILL");
                 sk.StyleMeterScore(4);
+                ptEnemy.updateDistances(); 
                 Destroy(gameObject);
                 Destroy(col.gameObject); 
                 Debug.Log("Normal Death w/o Explosion");
