@@ -9,7 +9,8 @@ public class RigidbodyMovement : MonoBehaviour
     public float moveIncrement = 15f;
     public float jumpMult = 2f;
     public float desiredHeight = 10f;
-    public float desiredAngle; 
+    public float desiredAngle;
+    public float angleOffset; 
     [SerializeField] bool isLeft;
     [SerializeField] bool isRight;
     [SerializeField] bool isUp;
@@ -23,7 +24,8 @@ public class RigidbodyMovement : MonoBehaviour
     //private float timer;
     //public LayerMask layermask;
     public Transform inst_point;
-    public GameObject proj; 
+    public GameObject proj;
+    public GameObject arm; 
     float vX;
     float vY;
 
@@ -82,7 +84,8 @@ public class RigidbodyMovement : MonoBehaviour
             fire = false; 
         }
         Punt(fire, proj, desiredAngle, inst_point);
-        Debug.Log(Vector2.Distance(transform.position, mousePos)); 
+        Debug.Log(Vector2.Distance(transform.position, mousePos));
+        Look(aimS.gameObject.transform); 
     }
     private void FixedUpdate()
     {
@@ -149,12 +152,27 @@ public class RigidbodyMovement : MonoBehaviour
     }
     private void Punt(bool isFire,GameObject inst, float angle,Transform p)
     {
-       
         if (isFire)
         {
           
            
-            GameObject.Instantiate(inst, position: p.position, rotation: transform.rotation);
+            GameObject.Instantiate(inst, position: p.position,inst_point.localRotation);
+        }
+    }
+    private void Look(Transform lookPosition)
+    {
+        Vector2 lp = new Vector2(lookPosition.position.x - transform.position.x, lookPosition.position.y - transform.position.y);
+        float dX = lp.x; 
+        float dY = lp.y; 
+        float angle = Mathf.Rad2Deg * Mathf.Atan2(dY, dX);
+        if (!canFire)
+        {
+            transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+        }
+        else
+        {
+            arm.SetActive(true); 
+            transform.rotation = Quaternion.AngleAxis(angle + angleOffset, new Vector3(0f, 0f, 1f));
         }
     }
     

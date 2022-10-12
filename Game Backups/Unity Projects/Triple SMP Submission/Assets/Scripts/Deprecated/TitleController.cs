@@ -8,6 +8,7 @@ public class TitleController : MonoBehaviour
     private bool isTSFinished = false;
     private int arrayScanner = 0; 
     public GameObject player; 
+   
     private void Update()
     {
         if (!isTSFinished)
@@ -35,6 +36,10 @@ public class TitleController : MonoBehaviour
         {
            
             CheckSequence(arrayScanner);
+            if(arrayScanner == 2)
+            {
+               // player.GetComponent<SpriteRenderer>().sprite =
+            }
         }
         else
         {

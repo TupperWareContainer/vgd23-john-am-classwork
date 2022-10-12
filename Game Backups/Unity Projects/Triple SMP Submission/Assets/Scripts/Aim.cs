@@ -6,7 +6,7 @@ public class Aim : MonoBehaviour
 {
     private Camera cam;
     public Vector3 mousePos;
-    public Transform debugObj; 
+    public Transform debugObj;
     // Start is called before the first frame update
     void Start()
     {
