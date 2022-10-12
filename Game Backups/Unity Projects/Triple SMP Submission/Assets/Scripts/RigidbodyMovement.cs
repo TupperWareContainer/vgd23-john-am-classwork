@@ -167,12 +167,12 @@ public class RigidbodyMovement : MonoBehaviour
         float angle = Mathf.Rad2Deg * Mathf.Atan2(dY, dX);
         if (!canFire)
         {
-            transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+            transform.rotation = Quaternion.AngleAxis(angle- angleOffset, new Vector3(0f, 0f, 1f));
         }
         else
         {
             arm.SetActive(true); 
-            transform.rotation = Quaternion.AngleAxis(angle + angleOffset, new Vector3(0f, 0f, 1f));
+            transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
         }
     }
     

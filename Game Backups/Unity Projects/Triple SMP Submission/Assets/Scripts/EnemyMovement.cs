@@ -126,7 +126,10 @@ public class EnemyMovement : MonoBehaviour
 
                 case 2:
                     sk.QueueStyleText("+BOOM");
-                    ptEnemy.updateDistances();
+                    if (isSpace)
+                    {
+                        ptEnemy.updateDistances();
+                    }
                     sk.StyleMeterScore(3);
                     Explode();
                     //Destroy(col.gameObject);
@@ -135,7 +138,10 @@ public class EnemyMovement : MonoBehaviour
             case 3:
                 sk.QueueStyleText("+KILL");
                 sk.StyleMeterScore(4);
-                ptEnemy.updateDistances(); 
+                if (isSpace)
+                {
+                    ptEnemy.updateDistances();
+                }
                 Destroy(gameObject);
                 Destroy(col.gameObject); 
                 Debug.Log("Normal Death w/o Explosion");
