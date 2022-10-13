@@ -16,7 +16,7 @@ public class Aim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,cam.nearClipPlane));
+        mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
         Debug.Log($" screen to world point: { cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane))}");
         Debug.Log($"mouseposx {Input.mousePosition.x}"); 
         transform.position = mousePos; 

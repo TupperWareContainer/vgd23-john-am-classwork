@@ -23,6 +23,7 @@ public class SpaceshipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetKey(KeyCode.W))
         {
             isDown = false; 
@@ -77,13 +78,15 @@ public class SpaceshipMovement : MonoBehaviour
             tSound.Stop();
             isPlayingAudio = false; 
         }
-        RotateObj();
+       
     }
     private void FixedUpdate()
     {
         Move(isUp, isDown, isLeft, isRight);
         FireLaser(fire);
-       
+        // RotateObj();
+        RotateObj();
+
     }
     private void Move(bool up, bool down, bool left, bool right)
     {
@@ -91,7 +94,7 @@ public class SpaceshipMovement : MonoBehaviour
         {
             rb2D.AddForce(new Vector2(0f, shipForce * Time.fixedDeltaTime), ForceMode2D.Impulse); 
            // rb2D.AddForce( transform.right * shipForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
-            Debug.Log(transform.forward * shipForce *Time.fixedDeltaTime);
+            //Debug.Log(transform.forward * shipForce *Time.fixedDeltaTime);
             //rb2D.AddRelativeForce(new Vector2(0f,shipForce* Time.deltaTime), ForceMode2D.Impulse);
         }
         else if (down)
@@ -114,10 +117,12 @@ public class SpaceshipMovement : MonoBehaviour
     private void RotateObj()
     {
         float angle;
+       
         Vector2 distance = new Vector2(pointer.transform.position.x - gameObject.transform.position.x, pointer.transform.position.y - gameObject.transform.position.y);
         float dX = distance.x;
         float dY = distance.y;
         angle = Mathf.Rad2Deg * Mathf.Atan2(dY,dX) + 270;
+        Debug.Log($"angle: {angle}");
         transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
     }
     private void FireLaser(bool isFire)

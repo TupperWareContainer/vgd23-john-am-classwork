@@ -685,7 +685,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185459940}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -738,7 +738,7 @@ Transform:
   m_GameObject: {fileID: 185459940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.6870594, y: 1.4673547, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3474,6 +3474,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1308743188775116196, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
   m_PrefabInstance: {fileID: 1026082663}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1108128794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7287642706438462917, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+  m_PrefabInstance: {fileID: 7287642706240770133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1108128799
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108128794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1001 &1119265801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6405,6 +6426,14 @@ PrefabInstance:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 185459940}
+    - target: {fileID: 7287642706438462913, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287642706438462913, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7287642706438462915, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
       propertyPath: DeathScreen
       value: 
@@ -6473,5 +6502,9 @@ PrefabInstance:
       propertyPath: arrow
       value: 
       objectReference: {fileID: 1645344602}
+    - target: {fileID: 7287642707404479229, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
