@@ -62,7 +62,6 @@ public class SpaceshipMovement : MonoBehaviour
         {
             fire = false; 
         }
-        RotateObj(); 
         if(rb2D.velocity != Vector2.zero && !isPlayingAudio && (isLeft || isRight || isUp || isDown))
         {
             tSound.Play();
@@ -78,7 +77,7 @@ public class SpaceshipMovement : MonoBehaviour
             tSound.Stop();
             isPlayingAudio = false; 
         }
-        
+        RotateObj();
     }
     private void FixedUpdate()
     {

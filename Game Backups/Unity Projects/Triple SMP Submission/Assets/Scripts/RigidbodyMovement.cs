@@ -25,7 +25,10 @@ public class RigidbodyMovement : MonoBehaviour
     //public LayerMask layermask;
     public Transform inst_point;
     public GameObject proj;
-    public GameObject arm; 
+    public GameObject arm;
+    public GameObject headForward;
+    public GameObject headRight;
+
     float vX;
     float vY;
 
@@ -168,11 +171,15 @@ public class RigidbodyMovement : MonoBehaviour
         if (!canFire)
         {
             transform.rotation = Quaternion.AngleAxis(angle- angleOffset, new Vector3(0f, 0f, 1f));
+            headForward.SetActive(true);
+            headRight.SetActive(false); 
         }
         else
         {
             arm.SetActive(true); 
             transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+            headForward.SetActive(false);
+            headRight.SetActive(true);
         }
     }
     
