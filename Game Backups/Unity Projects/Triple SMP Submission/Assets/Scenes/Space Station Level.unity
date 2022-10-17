@@ -4766,7 +4766,7 @@ PrefabInstance:
       objectReference: {fileID: 996141501}
     - target: {fileID: 1165822804219693899, guid: 60fdc6d4e4ae79f43978e9a0dfc02c0d, type: 3}
       propertyPath: maxStyleScore
-      value: 61
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1165822804219693899, guid: 60fdc6d4e4ae79f43978e9a0dfc02c0d, type: 3}
       propertyPath: styleText.Array.data[0]
@@ -32626,6 +32626,10 @@ PrefabInstance:
       propertyPath: headForward
       value: 
       objectReference: {fileID: 1786179534}
+    - target: {fileID: 3465572279290325571, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
+      propertyPath: moveIncrement
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 3465572279290325574, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
       propertyPath: m_Sprite
       value: 

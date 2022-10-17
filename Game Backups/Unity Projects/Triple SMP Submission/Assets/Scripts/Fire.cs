@@ -8,6 +8,7 @@ public class Fire : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 launchAngle;
     public float f_Mult;
+    public float maxV = 20; 
     private GameObject aimpos;
     [SerializeField] float timer; 
     private void Awake()
@@ -22,11 +23,20 @@ public class Fire : MonoBehaviour
         
         Debug.Log($"transform.forward for {name}: {transform.forward}");
         transform.LookAt(aimpos.transform.position);
-        rb.velocity = transform.forward * f_Mult;
-       
+        rb.velocity = ApplyVelocity(maxV); 
+        Debug.Log($"rb.velocity for {name}: {rb.velocity}");
+
     }
     private void Update()
     {
+        if (rb.velocity.magnitude < maxV)
+        {
+            rb.velocity += new Vector2(transform.forward.x * Time.deltaTime, transform.forward.y * Time.deltaTime) * 100;   
+        }
+        else if(rb.velocity.magnitude > maxV)
+        {
+            rb.velocity -= new Vector2(transform.forward.x * Time.deltaTime, transform.forward.y * Time.deltaTime) * 100;
+        }
 
         timer += Time.deltaTime;
         if(timer > 2)
@@ -40,5 +50,18 @@ public class Fire : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyMovement>().deathType = 1; /// when a enemy is hit by a bullet, the deathtype is set to normal 
         }
-    }       
+    }
+    private Vector3 ApplyVelocity(float max_Velocity)
+    {
+        Vector3 v = transform.forward * f_Mult;
+        if (v.sqrMagnitude < max_Velocity)
+        {
+            v += transform.forward * 10;
+        }
+        else if (v.sqrMagnitude > max_Velocity)
+        {
+            v -= transform.forward * 10;
+        }
+        return v; 
+    }
 }

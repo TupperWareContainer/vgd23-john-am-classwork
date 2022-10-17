@@ -15,7 +15,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public float cScore = 0;
     private float timer;
-    public float speedMultiplier;
+    [SerializeField] private float speedMultiplier;
 
     private float g_A, g_B, g_C, g_D, g_S; 
     public Text uIScore;
