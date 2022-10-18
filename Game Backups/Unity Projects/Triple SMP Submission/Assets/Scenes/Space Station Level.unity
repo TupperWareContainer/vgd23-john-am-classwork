@@ -196,11 +196,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93cf602356a230245a5a08a0bb615eae, type: 3}
---- !u!1 &26846778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3355509726521405422, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
-  m_PrefabInstance: {fileID: 5847647639628253842}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &37153140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32562,10 +32557,6 @@ PrefabInstance:
       propertyPath: Healthbar.Array.data[2]
       value: 
       objectReference: {fileID: 84617751}
-    - target: {fileID: 3465572279290325568, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3465572279290325569, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -32612,14 +32603,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3465572279290325571, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
       propertyPath: head
-      value: 
-      objectReference: {fileID: 1786179534}
-    - target: {fileID: 3465572279290325571, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
-      propertyPath: headRight
-      value: 
-      objectReference: {fileID: 26846778}
-    - target: {fileID: 3465572279290325571, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
-      propertyPath: headForward
       value: 
       objectReference: {fileID: 1786179534}
     - target: {fileID: 3465572279290325574, guid: f4f577e83858d2a469b8aee73efd4a42, type: 3}
