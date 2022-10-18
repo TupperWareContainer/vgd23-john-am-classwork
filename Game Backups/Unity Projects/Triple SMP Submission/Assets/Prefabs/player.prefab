@@ -318,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 3735504805655545551, guid: a70e98e9b043f0c448cbe84d91e720c9, type: 3}
+  m_Sprite: {fileID: 6967522372947797701, guid: a70e98e9b043f0c448cbe84d91e720c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -342,11 +342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3465572279290325568}
-  moveIncrement: 500
+  moveIncrement: 600
   jumpMult: 0.2
   desiredHeight: 100
   desiredAngle: 30
-  angleOffset: 0
+  angleOffset: 90
   isLeft: 0
   isRight: 0
   isUp: 0
@@ -357,8 +357,8 @@ MonoBehaviour:
   inst_point: {fileID: 3465572277910468444}
   proj: {fileID: 4093099428175436192, guid: 86ce4bd29f646034f91f29b084e406f2, type: 3}
   arm: {fileID: 5847647639467682973}
-  headForward: {fileID: 0}
-  headRight: {fileID: 0}
+  headForward: {fileID: 3355509726521405422}
+  headRight: {fileID: 9061637845742812353}
 --- !u!50 &3465572279290325568
 Rigidbody2D:
   serializedVersion: 4
@@ -463,13 +463,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5847647639467682973}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014, y: -1.38, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.259, y: -0.058, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3465572279290325569}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &5847647639467682947
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 378825510823495209, guid: a70e98e9b043f0c448cbe84d91e720c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -551,7 +551,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3465572279290325569}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &694023397137880347
 SpriteRenderer:
   m_ObjectHideFlags: 0
