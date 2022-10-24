@@ -20,10 +20,10 @@ public class EnemyMovement : MonoBehaviour
      */
     private void Awake()
     {
-        int num = 0;
+      
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-       //ameObject[] scorekeepers;
-        num = enemies.Length;
+        //ameObject[] scorekeepers;
+        int num = enemies.Length;
         name = $"Enemy {num}"; 
         
 

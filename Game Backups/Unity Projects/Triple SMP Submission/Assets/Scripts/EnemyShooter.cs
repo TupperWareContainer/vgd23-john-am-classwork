@@ -5,26 +5,50 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public ReturnColliders rC; 
+   
     public Transform instPoint;
-
+    public GameObject bulletDirection; 
     private Transform player;
+    public float maxDelay = 5f;
+    [SerializeField] private float timer;
+    private bool hasFired = false;
     
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform; 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        timer = maxDelay; 
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(distanceToPlayer() < 10)
+
+       if(distanceToPlayer() <= 30)
        {
+            lookAtPlayer();
             if (canSeePlayer())
             {
-                lookAtPlayer();
-                shoot(); 
+                if (!hasFired)
+                {
+                    timer = maxDelay;
+                    shoot();
+                    
+                    hasFired = true; 
+                }
+               
             }
-       }  
+       }
+        if (timer <= 0f)
+        {
+            hasFired = false; 
+        }
+        if (hasFired)
+        {
+            timer -= Time.deltaTime;
+        }
+        Debug.Log($"enemy player value: {player.position}");
+        Debug.Log($"distance to player: {distanceToPlayer()}");
     }
     private void shoot()
     {
@@ -39,7 +63,8 @@ public class EnemyShooter : MonoBehaviour
         Vector2 distance = new Vector2(transform.position.x - player.position.x, transform.position.y - player.position.y);
         float dx = distance.x;
         float dy = distance.y;
-        float angle =Mathf.Rad2Deg * Mathf.Atan2(dy, dx);
+        float angle =Mathf.Rad2Deg * Mathf.Atan2(dy, dx) +90f;
+        Debug.Log($"Enemy Angle: {angle}"); 
         transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f)); 
     }
     private float distanceToPlayer()
@@ -53,13 +78,25 @@ public class EnemyShooter : MonoBehaviour
     }
     public bool canSeePlayer()
     {
-        Ray2D ray = new Ray2D(transform.position, player.position);
-        
-        if (Physics2D.Raycast(ray.origin, ray.direction, distanceToPlayer()).collider.tag.Contains("Player"))
+
+        /*Ray2D ray = new Ray2D(transform.position,transform.forward * distanceToPlayer());
+        RaycastHit2D vision = Physics2D.Raycast(ray.origin, bulletDirection.transform.position, distanceToPlayer()*2 );
+        Debug.DrawRay(ray.origin, ray.direction * distanceToPlayer()); 
+        if(vision != false)
+        {
+            if (vision.collider.CompareTag("Player"))
+            {
+                return true;
+            }
+            
+        }
+        return false;*/
+        if (rC.isCollidingWithPlayer())
         {
             return true; 
         }
         return false; 
     }
+    
 }
 

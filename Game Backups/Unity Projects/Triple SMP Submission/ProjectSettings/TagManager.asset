@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Explosion
   - Laser
+  - EnemyBullet
+  - IgnoreBullet
   layers:
   - Default
   - TransparentFX
