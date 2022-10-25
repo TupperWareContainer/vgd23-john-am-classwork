@@ -12,6 +12,7 @@ TagManager:
   - Laser
   - EnemyBullet
   - IgnoreBullet
+  - PatrolRoute
   layers:
   - Default
   - TransparentFX

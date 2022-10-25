@@ -11,6 +11,7 @@ public class EnemyShooter : MonoBehaviour
     public GameObject bulletDirection; 
     private Transform player;
     public float maxDelay = 5f;
+    public float maxDistance = 30f; 
     [SerializeField] private float timer;
     private bool hasFired = false;
     
@@ -24,7 +25,7 @@ public class EnemyShooter : MonoBehaviour
     void Update()
     {
 
-       if(distanceToPlayer() <= 30)
+       if(distanceToPlayer() <= maxDistance)
        {
             lookAtPlayer();
             if (canSeePlayer())
@@ -67,7 +68,7 @@ public class EnemyShooter : MonoBehaviour
         Debug.Log($"Enemy Angle: {angle}"); 
         transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f)); 
     }
-    private float distanceToPlayer()
+    public float distanceToPlayer()
     {
         Vector2 distanceVector = new Vector2(transform.position.x - player.position.x, transform.position.y - player.position.y);
         float dx = distanceVector.x;
