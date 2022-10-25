@@ -19,9 +19,9 @@ public class ReturnColliders : MonoBehaviour
         {
             isCollide = true; 
         }
-        else
-        {
-            isCollide = false; 
-        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        isCollide = false; 
     }
 }

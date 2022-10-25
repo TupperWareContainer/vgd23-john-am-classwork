@@ -12,15 +12,22 @@ public class TitleSequence : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-          
-            
-            
-            inactiveText.gameObject.SetActive(true);
-            activeText.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+
+
+
+            if (!gameObject.name.Contains("ReadyToFightTrigger"))
+            {
+                inactiveText.gameObject.SetActive(true);
+                activeText.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
             if (gameObject.name.Contains("Sequence 4"))
             {
                 player.GetComponent<RigidbodyMovement>().canFire = true; 
+            }
+            if (gameObject.name.Contains("ReadyToFightTrigger"))
+            {
+                player.GetComponent<RigidbodyMovement>().canFire = true;
             }
         }
     }
