@@ -9,14 +9,17 @@ public class EnemyMovementTypeTwo : MonoBehaviour
     public bool isPatrol; 
     
     public ReturnColliders returnColliders;
-    private EnemyShooter enemyShooter; 
     public Transform[] patrolRoute;
+    public ScoreKeeper sk; 
+
+    private EnemyShooter enemyShooter; 
    [SerializeField] int patrolPt = 0; 
     private EnemyShooter shooterMode;
     private Rigidbody2D rb2d;
     private Transform player;
     public float maxRememberTime = 3f;
-    private float rememberTime; 
+    private float rememberTime;
+    private int deathType; 
     /**
      * The main idea of this script is that this enemy type (shooter) wants to stay within range of the player, however they can only do so once 
      * they know the player exists and shouldn't just blindly rush towards the player
@@ -30,11 +33,8 @@ public class EnemyMovementTypeTwo : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (patrolPt >= patrolRoute.Length)
-        {
-            patrolPt = 0;
-        }
-
+        if (patrolPt >= patrolRoute.Length) patrolPt = 0;
+        
         if (enemyShooter.distanceToPlayer() <= enemyShooter.maxDistance)
         {
             rememberTime = maxRememberTime; 
@@ -52,7 +52,8 @@ public class EnemyMovementTypeTwo : MonoBehaviour
         else
         {
             returnColliders.gameObject.SetActive(false); 
-            patrol(patrolPt);
+            if (patrolRoute.Length > 0) patrol(patrolPt);
+
         }
         
     }
@@ -76,6 +77,22 @@ public class EnemyMovementTypeTwo : MonoBehaviour
         {
             patrolPt++;
         }
+        if (collision.CompareTag("Bullet"))
+        {
+            deathType = 3;
+            Die(collision, deathType);
+        }
+        else if (collision.CompareTag("Explosion"))
+        {
+            Debug.Log("Collider with exploder");
+            deathType = 2;
+            Die(collision, deathType);
+        }
+        else if (collision.CompareTag("Laser"))
+        {
+            deathType = 1;
+            Die(collision, deathType);
+        }
     }
     private void moveToPlayer()
     {
@@ -91,5 +108,30 @@ public class EnemyMovementTypeTwo : MonoBehaviour
         float dy = -movementVector.y * moveSpeed;
         rb2d.velocity = new Vector2(dx * Time.fixedDeltaTime, dy * Time.fixedDeltaTime); 
 
+    }
+
+    public void Die(Collider2D col, int dType)
+    {
+        GameObject giver = col.gameObject; 
+        switch (dType)
+        {
+            case 1:
+                Destroy(giver);
+                sk.QueueStyleText("+KILL");
+                sk.StyleMeterScore(4);
+                Destroy(gameObject); 
+                break;
+            case 2:
+                sk.QueueStyleText("+BOOM");
+                sk.StyleMeterScore(4);
+                Destroy(gameObject);
+                break;
+            default:
+                Destroy(giver);
+                sk.QueueStyleText("+KILL");
+                sk.StyleMeterScore(4);
+                Destroy(gameObject);
+                break; 
+        }
     }
 }

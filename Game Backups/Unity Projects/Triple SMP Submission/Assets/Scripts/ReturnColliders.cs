@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ReturnColliders : MonoBehaviour
 {
-    private bool isCollide = false; 
+    private bool isCollide = false;
+    public Transform parent; 
     
     /**
      * Returns whether or not the player is within the check radius 
@@ -12,6 +13,14 @@ public class ReturnColliders : MonoBehaviour
     public bool isCollidingWithPlayer()
     {
         return isCollide; 
+    }
+    private void Update()
+    {
+        transform.position = parent.position;
+        if (parent == null)
+        {
+            Destroy(gameObject); 
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
