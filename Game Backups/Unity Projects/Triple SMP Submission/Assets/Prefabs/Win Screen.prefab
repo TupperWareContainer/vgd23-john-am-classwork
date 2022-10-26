@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'YOU WIN
+  m_Text: 'LEVEL COMPLETE
 
 '
 --- !u!1 &6718426253871959878
@@ -159,9 +159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'QUIT
-
-'
+  m_Text: TRY AGAIN
 --- !u!1 &6718426254203877659
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'MENU
+  m_Text: 'QUIT
 
 '
 --- !u!1 &6718426254370278305
@@ -454,7 +452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TRY AGAIN FROM BEGINNING
+  m_Text: 'NEXT LEVEL
 
 '
 --- !u!1 &6718426255264922000

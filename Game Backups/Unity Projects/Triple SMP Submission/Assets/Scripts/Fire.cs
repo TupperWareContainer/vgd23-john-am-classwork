@@ -50,6 +50,8 @@ public class Fire : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyMovement>().deathType = 1; /// when a enemy is hit by a bullet, the deathtype is set to normal 
         }
+        //else if (!collision.collider.CompareTag("Enemy")) Destroy(gameObject);
+        
     }
     private Vector3 ApplyVelocity(float max_Velocity)
     {
