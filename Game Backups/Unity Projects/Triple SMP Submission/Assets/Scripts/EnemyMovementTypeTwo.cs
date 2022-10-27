@@ -29,7 +29,8 @@ public class EnemyMovementTypeTwo : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         enemyShooter = GetComponent<EnemyShooter>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        rememberTime = maxRememberTime; 
+        rememberTime = maxRememberTime;
+        if (patrolRoute[1] = null) patrolRoute = new Transform[0]; 
     }
     private void FixedUpdate()
     {
@@ -80,6 +81,7 @@ public class EnemyMovementTypeTwo : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             deathType = 3;
+       
             Die(collision, deathType);
         }
         else if (collision.CompareTag("Explosion"))
@@ -119,17 +121,20 @@ public class EnemyMovementTypeTwo : MonoBehaviour
                 Destroy(giver);
                 sk.QueueStyleText("+KILL");
                 sk.StyleMeterScore(4);
+                Destroy(returnColliders.gameObject);
                 Destroy(gameObject); 
                 break;
             case 2:
                 sk.QueueStyleText("+BOOM");
                 sk.StyleMeterScore(4);
+                Destroy(returnColliders.gameObject);
                 Destroy(gameObject);
                 break;
             default:
                 Destroy(giver);
                 sk.QueueStyleText("+KILL");
                 sk.StyleMeterScore(4);
+                Destroy(returnColliders.gameObject);
                 Destroy(gameObject);
                 break; 
         }

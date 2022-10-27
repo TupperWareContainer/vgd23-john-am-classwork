@@ -17,7 +17,7 @@ public class ReturnColliders : MonoBehaviour
     private void Update()
     {
         transform.position = parent.position;
-        if (parent == null)
+        if (parent.gameObject == null)
         {
             Destroy(gameObject); 
         }

@@ -5,6 +5,4 @@ Number of Levels:  4
 
 2. Introduce new mechanic??? (time slow) map should use timeslow creatively
 
-3. new wep?
-
 4. "sandbox" level, player should be able to use mechanics to their liking

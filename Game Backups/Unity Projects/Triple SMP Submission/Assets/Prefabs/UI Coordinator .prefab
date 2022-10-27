@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1165822804219693898}
   - component: {fileID: 1165822804219693899}
   - component: {fileID: 1216195240579475827}
+  - component: {fileID: 5735966916032724057}
   m_Layer: 0
   m_Name: 'UI Coordinator '
   m_TagString: Untagged
@@ -45,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  maxStyleScore: 0
+  hasAppliedScore: 0
+  cScore: 0
+  speedMultiplier: 0
   uIScore: {fileID: 0}
   styleText:
   - {fileID: 0}
@@ -55,9 +60,7 @@ MonoBehaviour:
   - {fileID: 0}
   styleSlider: {fileID: 0}
   grade: {fileID: 0}
-  finalscore: 0
   player: {fileID: 0}
-  speedMultiplier: 0
 --- !u!114 &1216195240579475827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,3 +73,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb6d1db64305d94f832f07a4fb028c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5735966916032724057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165822804219693896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90dc7d45f9b2a7d4a830bfb11ee34fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScreen: {fileID: 0}

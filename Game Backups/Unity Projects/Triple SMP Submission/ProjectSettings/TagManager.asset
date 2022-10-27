@@ -13,6 +13,7 @@ TagManager:
   - EnemyBullet
   - IgnoreBullet
   - PatrolRoute
+  - WinScreen
   layers:
   - Default
   - TransparentFX
