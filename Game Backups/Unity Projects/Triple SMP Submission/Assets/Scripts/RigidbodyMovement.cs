@@ -15,11 +15,13 @@ public class RigidbodyMovement : MonoBehaviour
     [SerializeField] bool isRight;
     [SerializeField] bool isUp;
     [SerializeField] bool isDown;
-    public bool canFire = true; 
+    public bool canFire = true;
+    public bool canSlow = false; 
     //[SerializeField] bool isGrounded;
     [SerializeField] bool fire ;
     public Aim aimS;
-    private Vector2 mousePos; 
+    private Vector2 mousePos;
+   
    // private Vector2 offset = new Vector2(0f, -1);
     //private float timer;
     //public LayerMask layermask;
@@ -86,6 +88,7 @@ public class RigidbodyMovement : MonoBehaviour
         {
             fire = false; 
         }
+        if (Input.GetKeyDown(KeyCode.Q)) 
         Punt(fire, proj, desiredAngle, inst_point);
         Debug.Log(Vector2.Distance(transform.position, mousePos));
         Look(aimS.gameObject.transform); 
@@ -144,7 +147,7 @@ public class RigidbodyMovement : MonoBehaviour
         {
             vX = 0f;
         }
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.P) && canSlow)
         {
             
         }
@@ -181,6 +184,26 @@ public class RigidbodyMovement : MonoBehaviour
             headForward.SetActive(false);
             headRight.SetActive(true);
         }
+    }
+   /// <summary>
+   /// Halfs the timescale 
+   /// </summary>
+   /// <param name="isSlowing"></param> true = slowtime, false = normaltime
+    private void SlowTime(bool isSlowing)
+    {
+        if (isSlowing) Time.timeScale = 0.5f;
+        else Time.timeScale = 1f; 
+    }
+    /// <summary>
+    /// sets the timescale to a wanted floating point number 
+    /// </summary>
+    /// <param name="isSlowing"></param>    true = slowtime, false = normaltime
+    /// <param name="newTimeScale"></param> Timescale to be set, 1 = normal scale, 0 = game is frozen; 
+    private void SlowTime(bool isSlowing, float newTimeScale)
+    {
+        if (isSlowing) Time.timeScale = newTimeScale;
+
+        else Time.timeScale = 1f; 
     }
     
 }
