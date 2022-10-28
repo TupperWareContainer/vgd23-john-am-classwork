@@ -2824,26 +2824,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6718426253805883819, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
+      propertyPath: m_Text
+      value: 'YOU WIN
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 6718426254370278307, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4512456401771058036, guid: 4a2ca40903b4eab49a49e6e4fa8472ca, type: 3}
     - target: {fileID: 6718426254370278307, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TryFromBeginning
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718426254370278307, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718426255264922002, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4512456401771058036, guid: 4a2ca40903b4eab49a49e6e4fa8472ca, type: 3}
-    - target: {fileID: 6718426255264922002, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 6718426254370278307, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718426254885537345, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
+      propertyPath: m_Text
+      value: 'MENU
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718426255264922002, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4512456401771058036, guid: 4a2ca40903b4eab49a49e6e4fa8472ca, type: 3}
+    - target: {fileID: 6718426255264922002, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
     - target: {fileID: 6718426255264922002, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseManager, Assembly-CSharp
@@ -2854,7 +2866,7 @@ PrefabInstance:
       objectReference: {fileID: 4512456401771058036, guid: 4a2ca40903b4eab49a49e6e4fa8472ca, type: 3}
     - target: {fileID: 6718426255288564635, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
+      value: TryAgain
       objectReference: {fileID: 0}
     - target: {fileID: 6718426255288564635, guid: afa07b2b7e34f494dbc5a36d7b0a658d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

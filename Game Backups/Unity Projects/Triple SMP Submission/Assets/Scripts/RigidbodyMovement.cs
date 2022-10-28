@@ -88,7 +88,7 @@ public class RigidbodyMovement : MonoBehaviour
         {
             fire = false; 
         }
-        if (Input.GetKeyDown(KeyCode.Q)) 
+        
         Punt(fire, proj, desiredAngle, inst_point);
         Debug.Log(Vector2.Distance(transform.position, mousePos));
         Look(aimS.gameObject.transform); 
@@ -147,9 +147,15 @@ public class RigidbodyMovement : MonoBehaviour
         {
             vX = 0f;
         }
-        if (Input.GetKey(KeyCode.P) && canSlow)
+        if (Input.GetKey(KeyCode.Q) && canSlow)
         {
-            
+            SlowTime(true, 0.5f);
+            Debug.Log("Slow Motion"); 
+        }
+        else
+        {
+            Debug.Log("not slow motion"); 
+            SlowTime(false); 
         }
 
         output = new Vector2(vX, vY); 

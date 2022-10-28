@@ -113,6 +113,8 @@ public class SpaceshipMovement : MonoBehaviour
             rb2D.AddForce(new Vector2(-shipForce * Time.fixedDeltaTime, 0f), ForceMode2D.Impulse);
            // rb2D.AddRelativeForce(new Vector2(-shipForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
         }
+        if (Input.GetKey(KeyCode.Q)) Time.timeScale = 0.4f;
+        else Time.timeScale = 1f;
     }
     private void RotateObj()
     {

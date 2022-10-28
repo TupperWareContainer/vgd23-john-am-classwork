@@ -445,6 +445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1308933305}
   instructions: {fileID: 2078508871}
+  sR: {fileID: 1179047455}
+  s_1: {fileID: 21300000, guid: f73612128bbf40c43888b0bcafa0f405, type: 3}
+  s_2: {fileID: 21300000, guid: 03e1446c3664cbc43916cab88959cf58, type: 3}
+  textObj: {fileID: 1357387421}
 --- !u!61 &14456369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2713,6 +2717,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3339996854137364469, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 384
+      objectReference: {fileID: 0}
     - target: {fileID: 7076514885499436840, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2800,6 +2808,10 @@ PrefabInstance:
     - target: {fileID: 7076514885499436844, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076514886918112532, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7076514886948165462, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -26903,7 +26915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1357387422
 MonoBehaviour:
   m_ObjectHideFlags: 0

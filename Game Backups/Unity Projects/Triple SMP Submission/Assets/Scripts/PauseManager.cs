@@ -20,10 +20,6 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 0;
             pauseMenu.SetActive(true); 
         }
-        else
-        {
-            UnPause(); 
-        }
     }
     public void UnPause()
     {
