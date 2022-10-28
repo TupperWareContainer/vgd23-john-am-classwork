@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextLevel1 : MonoBehaviour
 {
-    public Scene spaceStationLevel; 
+ 
     private void OnCollisionEnter2D(Collision2D collision)
     {
      

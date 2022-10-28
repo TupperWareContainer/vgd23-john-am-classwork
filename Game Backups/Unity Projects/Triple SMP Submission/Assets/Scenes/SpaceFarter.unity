@@ -466,6 +466,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1515755248724210599, guid: 9a908401dc833bd41907aea1df9bac7b, type: 3}
   m_PrefabInstance: {fileID: 1026082663}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &104406843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4413917555137631787, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+  m_PrefabInstance: {fileID: 190173204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119734667
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +754,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &190173204
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413917554288412593, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_Name
+      value: Timeslow Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413917554288412597, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e4b3368d0367044381f31d11d6ff8a8, type: 3}
 --- !u!4 &206146962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7287642706438462919, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
@@ -6417,6 +6525,26 @@ PrefabInstance:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 185459940}
+    - target: {fileID: 7287642706438462912, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: slowColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287642706438462912, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: slowColor.b
+      value: 0.36763594
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287642706438462912, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: slowColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287642706438462912, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: slowColor.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287642706438462912, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
+      propertyPath: slowOverlay
+      value: 
+      objectReference: {fileID: 104406843}
     - target: {fileID: 7287642706438462913, guid: 7db7406a6ddc75e42af7ec7fb39020aa, type: 3}
       propertyPath: m_Simulated
       value: 1

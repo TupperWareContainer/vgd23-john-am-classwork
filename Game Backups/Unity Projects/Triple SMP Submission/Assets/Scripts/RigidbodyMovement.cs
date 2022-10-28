@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class RigidbodyMovement : MonoBehaviour
 {
@@ -30,14 +31,17 @@ public class RigidbodyMovement : MonoBehaviour
     public GameObject arm;
     public GameObject headForward;
     public GameObject headRight;
+    public Color slowColor;
+    public Image slowOverlay; 
 
     float vX;
     float vY;
-
     
+
     // Update is called once per frame
     void Update()
     {
+        slowOverlay.color = slowColor; 
         mousePos = aimS.mousePos;
         if (Input.GetKey(KeyCode.A))
         {
@@ -197,8 +201,20 @@ public class RigidbodyMovement : MonoBehaviour
    /// <param name="isSlowing"></param> true = slowtime, false = normaltime
     private void SlowTime(bool isSlowing)
     {
-        if (isSlowing) Time.timeScale = 0.5f;
-        else Time.timeScale = 1f; 
+        if (isSlowing)
+        {
+            Time.timeScale = 0.5f;
+            if(slowColor.a < .4)
+            {
+                slowColor.a += 0.1f; 
+            }
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            slowColor.a = 0; 
+        }
+        
     }
     /// <summary>
     /// sets the timescale to a wanted floating point number 
@@ -207,9 +223,20 @@ public class RigidbodyMovement : MonoBehaviour
     /// <param name="newTimeScale"></param> Timescale to be set, 1 = normal scale, 0 = game is frozen; 
     private void SlowTime(bool isSlowing, float newTimeScale)
     {
-        if (isSlowing) Time.timeScale = newTimeScale;
+        if (isSlowing)
+        {
+            Time.timeScale = newTimeScale;
+           if(slowColor.a < .4)
+            {
+                slowColor.a += 0.1f;
+            }
+        }
 
-        else Time.timeScale = 1f; 
+        else
+        {
+            Time.timeScale = 1f;
+            slowColor.a = 0; 
+        }
     }
     
 }

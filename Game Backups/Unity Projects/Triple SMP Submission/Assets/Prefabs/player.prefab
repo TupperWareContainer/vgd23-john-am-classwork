@@ -352,6 +352,7 @@ MonoBehaviour:
   isUp: 0
   isDown: 0
   canFire: 0
+  canSlow: 0
   fire: 0
   aimS: {fileID: 650888229822834880}
   inst_point: {fileID: 3465572277910468444}
@@ -359,6 +360,8 @@ MonoBehaviour:
   arm: {fileID: 5847647639467682973}
   headForward: {fileID: 9061637845742812353}
   headRight: {fileID: 3355509726521405422}
+  slowColor: {r: 0.4245283, g: 0, b: 0.28758383, a: 0.23529412}
+  slowOverlay: {fileID: 0}
 --- !u!50 &3465572279290325568
 Rigidbody2D:
   serializedVersion: 4

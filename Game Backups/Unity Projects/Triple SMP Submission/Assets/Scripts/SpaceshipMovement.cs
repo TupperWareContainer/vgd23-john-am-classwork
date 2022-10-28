@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class SpaceshipMovement : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class SpaceshipMovement : MonoBehaviour
     public float laserRange = 10f;
     public GameObject lasorigin;
     private AudioSource tSound;
-    private bool isPlayingAudio = false; 
+    private bool isPlayingAudio = false;
+    public Color slowColor;
+    public Image slowOverlay;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class SpaceshipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        slowOverlay.color = slowColor; 
         if (Input.GetKey(KeyCode.W))
         {
             isDown = false; 
@@ -113,8 +116,8 @@ public class SpaceshipMovement : MonoBehaviour
             rb2D.AddForce(new Vector2(-shipForce * Time.fixedDeltaTime, 0f), ForceMode2D.Impulse);
            // rb2D.AddRelativeForce(new Vector2(-shipForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
         }
-        if (Input.GetKey(KeyCode.Q)) Time.timeScale = 0.4f;
-        else Time.timeScale = 1f;
+        if (Input.GetKey(KeyCode.Q)) SlowTime(true, 0.5f);
+        else SlowTime(false); 
     }
     private void RotateObj()
     {
@@ -151,5 +154,49 @@ public class SpaceshipMovement : MonoBehaviour
             lasorigin.SetActive(false); 
         }
     }
+    /// <summary>
+    /// Halfs the timescale 
+    /// </summary>
+    /// <param name="isSlowing"></param> true = slowtime, false = normaltime
+    private void SlowTime(bool isSlowing)
+    {
+        if (isSlowing)
+        {
+            Time.timeScale = 0.5f;
+            if (slowColor.a < .4)
+            {
+                slowColor.a += 0.1f;
+            }
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            slowColor.a = 0;
+        }
+
+    }
+    /// <summary>
+    /// sets the timescale to a wanted floating point number 
+    /// </summary>
+    /// <param name="isSlowing"></param>    true = slowtime, false = normaltime
+    /// <param name="newTimeScale"></param> Timescale to be set, 1 = normal scale, 0 = game is frozen; 
+    private void SlowTime(bool isSlowing, float newTimeScale)
+    {
+        if (isSlowing)
+        {
+            Time.timeScale = newTimeScale;
+            if (slowColor.a < .4)
+            {
+                slowColor.a += 0.1f;
+            }
+        }
+
+        else
+        {
+            Time.timeScale = 1f;
+            slowColor.a = 0;
+        }
+    }
+
 }
 
