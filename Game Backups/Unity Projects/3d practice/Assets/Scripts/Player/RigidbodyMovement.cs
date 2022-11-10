@@ -7,7 +7,8 @@ public class RigidbodyMovement : MonoBehaviour
     private Rigidbody rb;
     public float moveMult = 3f;
     public int maxJumps = 1;
-    public float jumpForce = 30f; 
+    public float jumpForce = 30f;
+    public float shiftMult = 3f; 
     [SerializeField] private int jumps; 
     [SerializeField] private bool forward = false;
     [SerializeField] private bool back = false;
@@ -60,7 +61,7 @@ public class RigidbodyMovement : MonoBehaviour
             jumps--; 
         }
         canJump = jumps > 0; 
-       
+        
        
     }
     private void MovePlayer(bool forward,bool backwards, bool left, bool right)
@@ -77,10 +78,16 @@ public class RigidbodyMovement : MonoBehaviour
         else if (right) dZ = -moveMult * Time.fixedDeltaTime;
         else dZ = 0f;
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            dX *= shiftMult;
+            dZ *= shiftMult; 
+        }
         
         dY = rb.velocity.y; 
        
-        mVector = new Vector3(dX, dY, dZ);
+        mVector = (transform.forward * dZ) + (transform.right * dX) + (transform.up * dY);
+        Debug.Log($"mVector{mVector}");
         rb.velocity = mVector; 
     }
     private void FixedUpdate()
