@@ -242,6 +242,7 @@ MonoBehaviour:
   moveSpeed: 300
   jumpForce: 350
   isMove: 0
+  ani: {fileID: 1743455998}
 --- !u!50 &1743455994
 Rigidbody2D:
   serializedVersion: 4
