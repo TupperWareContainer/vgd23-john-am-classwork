@@ -7,7 +7,11 @@ public class FakeRain : MonoBehaviour
 {
     public GameObject rainPrefab;
     public Transform p1, p2, p3, p4, p5;
-   
+
+    private void Start()
+    {
+        InvokeRepeating("SpawnRandom", 2.0f, 1.0f); 
+    }
 
     Vector3 getRandomPos()
     {
@@ -33,5 +37,11 @@ public class FakeRain : MonoBehaviour
                 break; 
         }
         return spawnPos.position; 
+    }
+   
+    void SpawnRandom()
+    {
+        Vector3 spawnPos = getRandomPos();
+        Instantiate(rainPrefab, spawnPos, gameObject.transform.rotation); 
     }
 }
