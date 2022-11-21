@@ -8,7 +8,10 @@ public class RigidbodyMovement : MonoBehaviour
     public float moveMult = 3f;
     public int maxJumps = 1;
     public float jumpForce = 30f;
-    public float shiftMult = 3f; 
+    public float shiftMult = 3f;
+    public float maxBhop = 3f; 
+
+    [SerializeField] private float bhopMult; 
     [SerializeField] private int jumps; 
     [SerializeField] private bool forward = false;
     [SerializeField] private bool back = false;
@@ -20,7 +23,8 @@ public class RigidbodyMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jumps = maxJumps; 
+        jumps = maxJumps;
+        bhopMult = 1; 
     }
     // update is used to get input 
     private void Update()
@@ -58,20 +62,29 @@ public class RigidbodyMovement : MonoBehaviour
         {
             rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse); 
             canJump = false; 
-            jumps--; 
+            jumps--;
+            if(bhopMult < maxBhop)
+            {
+                bhopMult *= 1.5f;
+            }
+            else
+            {
+                bhopMult = maxBhop; 
+            }
         }
-        canJump = jumps > 0; 
+        canJump = jumps > 0;
         
-       
+
+
     }
     private void MovePlayer(bool forward,bool backwards, bool left, bool right)
     {
         Vector3 mVector;
         float dX,dY,dZ = 0f;
 
-
-        if (forward) dX = moveMult * Time.fixedDeltaTime;
-        else if (back) dX = -moveMult * Time.fixedDeltaTime;
+       
+        if (forward) dX = (moveMult * bhopMult) * Time.fixedDeltaTime;
+        else if (back) dX = (-moveMult*bhopMult) * Time.fixedDeltaTime;
         else dX = 0f;
 
         if (left) dZ = moveMult * Time.fixedDeltaTime;

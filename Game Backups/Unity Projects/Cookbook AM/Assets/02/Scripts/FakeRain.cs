@@ -7,10 +7,11 @@ public class FakeRain : MonoBehaviour
 {
     public GameObject rainPrefab;
     public Transform p1, p2, p3, p4, p5;
+    public float rate = 1f; 
 
     private void Start()
     {
-        InvokeRepeating("SpawnRandom", 2.0f, 1.0f); 
+        InvokeRepeating("SpawnRandom", 2.0f, rate); 
     }
 
     Vector3 getRandomPos()

@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 1033597568}
   - component: {fileID: 1033597571}
   - component: {fileID: 1033597572}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,11 +460,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMult: 500
-  jumpForce: 100
+  jumpForce: 50
   isLeft: 0
   isRight: 0
   isUp: 0
   canClimb: 0
   canJump: 0
+  boxDistance: 0.5
   boxSize: {x: 1, y: 0.5}
   boxSizeJump: {x: 1, y: 0.5}

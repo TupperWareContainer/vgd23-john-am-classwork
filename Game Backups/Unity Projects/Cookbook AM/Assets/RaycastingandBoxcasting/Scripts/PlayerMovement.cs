@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 10f; 
     public bool isLeft, isRight, isUp = false;
     public bool canClimb = false;
-    public bool canJump = false; 
-   
+    public bool canJump = false;
+    public float boxDistance = 0.5f;  
     private Rigidbody2D rb;
     Vector2 climbOffsett;
     Vector2 jumpOffsett; 
@@ -22,11 +22,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        canClimb = Physics2D.BoxCast(climbOffsett, boxSize, 0f, Vector2.up);
-        canJump = Physics2D.BoxCast(jumpOffsett, boxSizeJump, 0f, Vector2.down);
-        climbOffsett = new Vector2(transform.position.x, transform.position.y + (transform.lossyScale.y/2));
-        jumpOffsett = new Vector2(transform.position.x, -(transform.position.y - (transform.lossyScale.y/2)));
         
+        climbOffsett = new Vector2(transform.position.x, transform.position.y + (transform.lossyScale.y/2));
+        jumpOffsett = new Vector2(transform.position.x, 0.3f);
+        //canClimb = Physics2D.BoxCast(climbOffsett, boxSize, 0f, Vector2.up,distance:boxDistance);
+        canJump = Physics2D.BoxCast(jumpOffsett, boxSizeJump, 0f, Vector2.down, distance: boxDistance);
+
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             isRight = true;
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             dX = moveMult * Time.fixedDeltaTime; 
         }
         
-        if (up)
+        if (up && canJump && rb.velocity.y <= 10f)
         {
             rb.AddForce(new Vector2(0f, jumpForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
             dY = rb.velocity.y; 
