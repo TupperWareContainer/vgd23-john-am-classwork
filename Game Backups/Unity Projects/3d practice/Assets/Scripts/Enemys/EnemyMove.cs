@@ -51,8 +51,11 @@ public class EnemyMove : MonoBehaviour
     private void TrackPlayer()
     {
         Ray visionRay = new Ray(transform.position, transform.forward);
-       // Ray trackingRay = new Ray(transform.position, player.transform.position); 
+        float trackingDistX = transform.position.x - player.position.x;
+        float trackingDistY = transform.position.y - player.position.y; 
+        //Ray trackingRay = new Ray(transform.position, player.transform.position); 
         RaycastHit hit;
+
         Vector3 distance = new Vector3((transform.position.x - player.position.x), (transform.position.y - player.position.y), (transform.position.z - player.position.z));
         
         Debug.DrawRay(visionRay.origin, visionRay.direction * maxVisionDist); 
