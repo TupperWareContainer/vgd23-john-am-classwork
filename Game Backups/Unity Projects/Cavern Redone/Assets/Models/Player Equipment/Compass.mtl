@@ -1,0 +1,132 @@
+# Blender 3.3.1 MTL File: 'Compass.blend'
+# www.blender.org
+
+newmtl 0Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/0 Texture.png
+
+newmtl 1mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/1 Texture.png
+
+newmtl 2Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/2 Texture.png
+
+newmtl 3Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/3 Texture.png
+
+newmtl 4Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/4 Texture.png
+
+newmtl 5Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/5 Texture.png
+
+newmtl 6Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/6 Texture.png
+
+newmtl 7Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/7 Texture.png
+
+newmtl 8Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/8 Texture.png
+
+newmtl 9Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/9 Texture.png
+
+newmtl Altimiter_Mat
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/AltimeterTexture.png
+
+newmtl CompassBase
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/Compass Texture.png
+
+newmtl Pointer
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/boxtr/Documents/vgd23-john-am-classwork/Photoshop Stuff/Textures/PointerTexture.png

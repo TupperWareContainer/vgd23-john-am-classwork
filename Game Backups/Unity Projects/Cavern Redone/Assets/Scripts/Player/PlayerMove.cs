@@ -47,16 +47,18 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        MovePlayer(left, right, forward, back, jump);  
+        MovePlayer(left, right, forward, back, jump);
+        Debug.Log($"rb velocity: {rb.velocity}");
     }
     private void MovePlayer(bool isLeft, bool isRight, bool isForward, bool isBack, bool isJump)
     {
         float dX,dZ,dY = 0f;
-        if (isLeft) dZ = -moveMult * Time.fixedDeltaTime;
-        else if (isRight) dZ = moveMult * Time.fixedDeltaTime;
+        if (isLeft) dZ = moveMult * Time.fixedDeltaTime;
+        else if (isRight) dZ = -moveMult * Time.fixedDeltaTime;
         else dZ = 0f;
+
         if (isForward) dX = moveMult * Time.fixedDeltaTime;
-        else if (isBack) dX = moveMult * Time.fixedDeltaTime;
+        else if (isBack) dX = -moveMult * Time.fixedDeltaTime;
         else dX = 0f;
         dY = rb.velocity.y;
 
