@@ -26,10 +26,12 @@ public class EquipmentManager : MonoBehaviour
             case 1:       ///Flashlight
                 if(equipment.Length >= 1)
                 {
+                    equipment[2].SetActive(false); 
                     equipment[0].SetActive(!equipment[0].activeInHierarchy);
                    
                     Debug.Log(equipment[0].name + " toggled"); 
                 }
+                
                 break;
             case 2:           ///Compass 
                 if(equipment.Length >= 2)
@@ -37,14 +39,12 @@ public class EquipmentManager : MonoBehaviour
                     equipment[1].SetActive(!equipment[1].activeInHierarchy);
                     Debug.Log(equipment[1].name + " toggled");
                 }
+                
                 break;
-            case 3:
+            case 3:       ///Glowstick
                 if (equipment.Length >= 3)
                 {
-                    for(int i = 0; i < key; i++)
-                    {
-                        equipment[i].SetActive(false); 
-                    }
+                    equipment[0].SetActive(false); 
                     equipment[2].SetActive(!equipment[2].activeInHierarchy);
                     Debug.Log(equipment[2].name + " toggled");
                 }

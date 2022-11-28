@@ -1225,7 +1225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7680635262825846630}
   - component: {fileID: 4572602607998153970}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Compass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,30 +1277,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getNumbers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 944f7dc4a8a96d540b4c38685b1eacfa, type: 2}
+  - {fileID: 2100000, guid: c673cc21309d2354a8f72523e0e5b5e2, type: 2}
+  - {fileID: 2100000, guid: 5aec26cccf32f6443bc4db4f64b30073, type: 2}
+  - {fileID: 2100000, guid: ace9e67d941a4e349ae79122a87c9afb, type: 2}
+  - {fileID: 2100000, guid: 14508e0b6b27e86408330ced344d9c47, type: 2}
+  - {fileID: 2100000, guid: 5884ea576b806334aacd2b58161765d8, type: 2}
+  - {fileID: 2100000, guid: 6435b35c7ba5bbe45b9e66f9afa357de, type: 2}
+  - {fileID: 2100000, guid: 1b19ea56d0b885f45923eaaa2c647d03, type: 2}
+  - {fileID: 2100000, guid: d18e9245219981349bb1a2c3028a40ad, type: 2}
+  - {fileID: 2100000, guid: 4fc98f4e3942bfb4789911af199e2e27, type: 2}
   setNumbers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1316706394216430636}
+  - {fileID: 6261044457063633953}
+  - {fileID: 333083424426408731}
+  - {fileID: 3599252720277688858}
+  - {fileID: 8439779359889525793}
   north: {fileID: 0}
-  compassPointer: {fileID: 0}
+  compassPointer: {fileID: 4569042738764197057}
   playerTransform: {fileID: 0}
+  otherTarget: {fileID: 0}
+  compassBase: {fileID: 3244700131435721052}
+  northOffset: 10
+  compassOffset: 0.5
 --- !u!1 &7291926181816065417
 GameObject:
   m_ObjectHideFlags: 0
