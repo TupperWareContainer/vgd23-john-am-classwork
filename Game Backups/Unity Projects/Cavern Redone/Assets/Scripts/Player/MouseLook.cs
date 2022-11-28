@@ -12,6 +12,7 @@ public class MouseLook : MonoBehaviour
     private float modVAngle = 0;
     private float vAngle;
     private float hAngle;
+    private bool canLook = true; 
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAtMouse();
+        if(canLook) LookAtMouse();
         if (Input.GetKeyDown(KeyCode.L))
         {
             cursorLock = !cursorLock;
@@ -67,10 +68,13 @@ public class MouseLook : MonoBehaviour
         camTransform.rotation = Quaternion.Euler(eulerRot);
 
         transform.rotation = Quaternion.Euler(yRot.eulerAngles);
-
-
-
-
-
+    }
+    /// <summary>
+    /// Determines whether the player can look using the mouse  
+    /// </summary>
+    /// <param name="arg"></param> true = screen is locked, false = screen is unlocked 
+    public void ScreenLock(bool arg)
+    {
+        canLook = !arg; 
     }
 }
