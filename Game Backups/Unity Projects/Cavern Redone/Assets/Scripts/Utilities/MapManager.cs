@@ -9,17 +9,25 @@ public class MapManager : MonoBehaviour
     public GameObject currentMap;
     public MouseLook player;
     public GameObject[] mapChunks;
+    
 
     private bool[] canBeActive;
+    private bool updateChunks = false; 
     private void Start()
     {
-        canBeActive = new bool[mapChunks.Length]; 
+        canBeActive = new bool[mapChunks.Length];
+        StartCoroutine(chunkStatus());
     }
     private void Update()
     {
         if (Input.GetButtonDown("Map")){
             currentMap.SetActive(!currentMap.activeInHierarchy);
-            PauseGame(); 
+            PauseGame();
+            updateChunks = true; 
+        }
+        else
+        {
+            updateChunks = false; 
         }
         if (currentMap.activeInHierarchy)
         {
@@ -60,6 +68,24 @@ public class MapManager : MonoBehaviour
     public void SetChunkStatus(int chunk,bool status)
     {
         canBeActive[chunk] = status; 
+    }
+    IEnumerator chunkStatus()
+    {
+        yield return new WaitUntil( ()=> updateChunks);
+        if (currentMap.activeInHierarchy)
+        {
+            for (int i = 0; i < mapChunks.Length; i++)
+            {
+                if (canBeActive[i])
+                {
+                    mapChunks[i].SetActive(true);
+                }
+                else
+                {
+                    mapChunks[i].SetActive(false); 
+                }
+            }
+        }
     }
     
 }

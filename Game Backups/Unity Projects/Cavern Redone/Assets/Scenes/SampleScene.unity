@@ -167,6 +167,8 @@ GameObject:
   - component: {fileID: 32466291}
   - component: {fileID: 32466290}
   - component: {fileID: 32466289}
+  - component: {fileID: 32466293}
+  - component: {fileID: 32466294}
   m_Layer: 0
   m_Name: Map Expander
   m_TagString: Untagged
@@ -250,6 +252,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32466293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32466288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b8762957a78554abc32d94380649a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designatedChunk: 0
+--- !u!65 &32466294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32466288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!850595691 &63368924
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -34905,7 +34933,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23910
+  m_Name: pb_Mesh16488
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35509,7 +35537,7 @@ GameObject:
   - component: {fileID: 1400432473}
   m_Layer: 0
   m_Name: MapManager
-  m_TagString: Untagged
+  m_TagString: MapManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45361,7 +45389,7 @@ GameObject:
   - component: {fileID: 1893816448}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
