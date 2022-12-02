@@ -20,10 +20,12 @@ public class MapManager : MonoBehaviour
     }
     private void Update()
     {
+        
         if (Input.GetButtonDown("Map")){
             currentMap.SetActive(!currentMap.activeInHierarchy);
             PauseGame();
-            updateChunks = true; 
+            updateChunks = true;
+            StartCoroutine(chunkStatus());
         }
         else
         {
@@ -71,11 +73,12 @@ public class MapManager : MonoBehaviour
     }
     IEnumerator chunkStatus()
     {
-        yield return new WaitUntil( ()=> updateChunks);
+        yield return new WaitUntil(() => updateChunks);
         if (currentMap.activeInHierarchy)
         {
             for (int i = 0; i < mapChunks.Length; i++)
             {
+                Debug.Log($"Canbeactive {i}: {canBeActive[i]}");
                 if (canBeActive[i])
                 {
                     mapChunks[i].SetActive(true);
