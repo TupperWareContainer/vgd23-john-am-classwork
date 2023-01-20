@@ -30,7 +30,7 @@ public class LevelMinatureHandler : MonoBehaviour
     void Start()
     {
         playerMiniature.localPosition = player.transform.position - levelPosition;
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -41,7 +41,8 @@ public class LevelMinatureHandler : MonoBehaviour
         {
             if (recursivePhysics && isHeld)
             {
-                recursiveMiniEmulation(); 
+                recursiveMiniEmulation();
+                StartCoroutine(setPhysicsScale());
             }
             else normalMiniEmulation(); 
         }
@@ -56,6 +57,14 @@ public class LevelMinatureHandler : MonoBehaviour
         movables[pos].transform.position = miniatures[pos].transform.localPosition + levelPosition;
         movables[pos].transform.rotation = miniatures[pos].transform.rotation; 
         pos = (pos < miniatures.Length - 1) ? pos + 1 : 0;
+    }
+    IEnumerator setPhysicsScale()
+    {
+        yield return new WaitUntil(() => recursivePhysics); 
+        foreach (GameObject miniature in miniatures)
+        {
+            miniature.GetComponent<Rigidbody>().velocity *= LevelScale * Time.deltaTime; 
+        }
     }
 
     #region ACCESSORS AND MUTATORS

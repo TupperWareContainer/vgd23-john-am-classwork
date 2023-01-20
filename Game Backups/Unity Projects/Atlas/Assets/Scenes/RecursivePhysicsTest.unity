@@ -667,7 +667,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17824
+  m_Name: pb_Mesh17416
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5172,7 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cca579f2e879a841ad34a86ffec74e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelScale: 0.01
+  LevelScale: 0.001
   hasMiniatures: 1
   recursivePhysics: 1
   levelPosition: {x: 0, y: 0, z: 0}
