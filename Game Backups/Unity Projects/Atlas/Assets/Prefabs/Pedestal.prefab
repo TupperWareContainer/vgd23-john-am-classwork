@@ -128,7 +128,7 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1109407884917208527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   applyGravityMod: 0
   applySpeedMod: 0
   miniaturePlacement: {fileID: 1109407883967668326}
+  placementOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1109407884917208530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -160,4 +161,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 1.5, z: -0.00000008940697}
+  m_Center: {x: 0, y: 1.5, z: 0}

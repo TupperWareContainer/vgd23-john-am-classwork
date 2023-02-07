@@ -14,6 +14,7 @@ public class CheckForLevelMiniature : MonoBehaviour
     public bool applyGravityMod;
     public bool applySpeedMod; 
     public Transform miniaturePlacement;
+    public Vector3 placementOffset; 
 
 
     private void OnTriggerStay(Collider other)
@@ -33,7 +34,7 @@ public class CheckForLevelMiniature : MonoBehaviour
       
         levelMiniature.transform.parent = miniaturePlacement;
         levelMiniature.transform.rotation = Quaternion.Euler(Vector3.zero); 
-        levelMiniature.transform.position = miniaturePlacement.position;
+        levelMiniature.transform.position = miniaturePlacement.position + placementOffset;
         levelMiniature.GetComponent<Rigidbody>().velocity = Vector3.zero; 
         if (mendLevel)
         {

@@ -11,7 +11,7 @@ public class LevelMinatureHandler : MonoBehaviour
     [Header("General Settings")]
     public float LevelScale = 0.01f;
     public bool hasMiniatures = false;
-    public bool recursivePhysics = false; 
+   // public bool recursivePhysics = false; 
     public Vector3 levelPosition = new Vector3(0f, 0f, 0f);
 
     private bool isHeld = false; 
@@ -39,12 +39,13 @@ public class LevelMinatureHandler : MonoBehaviour
         playerMiniature.transform.localPosition = player.transform.position - levelPosition;
         if (hasMiniatures)
         {
-            if (recursivePhysics && isHeld)
-            {
-                recursiveMiniEmulation();
-                StartCoroutine(setPhysicsScale());
-            }
-            else normalMiniEmulation(); 
+            /*  if (recursivePhysics && isHeld)
+              {
+                  recursiveMiniEmulation();
+                  StartCoroutine(setPhysicsScale());
+              }
+              else normalMiniEmulation(); */
+            normalMiniEmulation(); 
         }
     }
     private void normalMiniEmulation()
@@ -52,7 +53,7 @@ public class LevelMinatureHandler : MonoBehaviour
         miniatures[pos].transform.localPosition = movables[pos].transform.position - levelPosition;
         pos = (pos < miniatures.Length - 1) ? pos + 1 : 0;
     }
-    private void recursiveMiniEmulation()
+   /* private void recursiveMiniEmulation()
     {
         movables[pos].transform.position = miniatures[pos].transform.localPosition + levelPosition;
         movables[pos].transform.rotation = miniatures[pos].transform.rotation; 
@@ -65,7 +66,7 @@ public class LevelMinatureHandler : MonoBehaviour
         {
             miniature.GetComponent<Rigidbody>().velocity *= LevelScale * Time.deltaTime; 
         }
-    }
+    }*/
 
     #region ACCESSORS AND MUTATORS
     public bool getHeld()

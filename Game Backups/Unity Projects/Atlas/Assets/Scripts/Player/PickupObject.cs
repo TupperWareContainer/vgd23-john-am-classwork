@@ -9,9 +9,10 @@ public class PickupObject : MonoBehaviour
     [Header("External References")]
     public Transform boxPos;
     public ReturnOnHit rHit;
-
+    public Transform tranToLookAt; 
     [Header("Preferences")]
     public float throwingVMod = 0.3f;
+    public float pickupForce = 100f; 
     public float throwForce; 
     [Header("Debug")]
     public bool hasEquipped; 
@@ -19,7 +20,9 @@ public class PickupObject : MonoBehaviour
     private Collider[] equippedObjCollider; 
 
     private bool allowHold;
-    private Vector3 miniPosOld, miniPosNew, miniVelocity; 
+    private Quaternion initialObjRot; 
+    // private Vector3 miniPosOld, miniPosNew, miniVelocity; 
+   // private Vector3 initHeldObjPos; 
 
     private void Start()
     {
@@ -34,6 +37,7 @@ public class PickupObject : MonoBehaviour
             if (rHit.hasCollidedWithValid())
             {
                 equippedObj = rHit.getObj();
+                initialObjRot = equippedObj.transform.rotation; 
                 equippedObjCollider = rHit.getCol();
                 allowHold = !allowHold;
                 hasEquipped = !hasEquipped; 
@@ -61,20 +65,31 @@ public class PickupObject : MonoBehaviour
         {
             objToHold.GetComponent<LevelMinatureHandler>().setHeld(true); 
         }
-       /* miniPosNew = objToHold.transform.position;
-        miniVelocity = calculateVelocity(miniPosOld, miniPosNew, Time.fixedDeltaTime,throwingVMod);
-        miniPosOld = miniPosNew; */
-        objToHold.transform.position = boxPos.position;
-        objToHold.transform.rotation = transform.rotation;
-        objRB.velocity = playerRB.velocity;
+        
+        /* miniPosNew = objToHold.transform.position;
+         miniVelocity = calculateVelocity(miniPosOld, miniPosNew, Time.fixedDeltaTime,throwingVMod);
+         miniPosOld = miniPosNew; */
+       
         foreach(Collider col in objCollider)
         {
             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), col, true);
         }
+        //objRB.useGravity = false; 
+        jankyCollision(objToHold.transform, objRB); 
     }
-    
+    void jankyCollision(Transform colTransform, Rigidbody colRigidbody)
+    {
+        float modForce = pickupForce * (boxPos.position - colTransform.position).magnitude; 
+        colRigidbody.velocity = (Vector3.Normalize(boxPos.position - colTransform.position) * modForce) * Time.fixedDeltaTime;
+
+        colTransform.LookAt(tranToLookAt);
+        colTransform.eulerAngles = new Vector3(initialObjRot.eulerAngles.x, colTransform.eulerAngles.y, initialObjRot.eulerAngles.z); 
+       // colRigidbody.AddForce((Vector3.Normalize(boxPos.position - colTransform.position) * pickupForce) * Time.fixedDeltaTime,ForceMode.Impulse);
+    }
     private void dropGameObject(GameObject objToHold, Collider[] objCollider)
     {
+
+        //objToHold.GetComponent<Rigidbody>().useGravity = true;  
        foreach(Collider col in objCollider)
        {
             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), col, false);
@@ -92,12 +107,12 @@ public class PickupObject : MonoBehaviour
         Rigidbody objRB = objToHold.GetComponent<Rigidbody>();
         objRB.AddForce((transform.forward * throwForce) * Time.deltaTime,ForceMode.Impulse); 
     }
-    private Vector3 calculateVelocity(Vector3 oldPos,Vector3 newPos,float dTime,float vMod)
+   /* private Vector3 calculateVelocity(Vector3 oldPos,Vector3 newPos,float dTime,float vMod)
     {
         Vector3 delta = newPos - oldPos;
         delta = Vector3.Normalize(delta); 
         return ((delta * vMod) / dTime); 
-    }
+    }*/
 
 }
 
